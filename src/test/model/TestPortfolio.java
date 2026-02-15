@@ -30,12 +30,12 @@ public class TestPortfolio {
 
     @Test
     void testAddCompany() {
-        portfolio.addCompany(company1);
+        assertTrue(portfolio.addCompany(company1));
         assertEquals(1, portfolio.getCompanies().size());
         assertEquals(0, portfolio.getMoneyInvested());
         assertEquals(0, portfolio.getProfit());
 
-        portfolio.addCompany(company1);
+        assertFalse(portfolio.addCompany(company1));
         assertEquals(1, portfolio.getCompanies().size());
         assertEquals(0, portfolio.getMoneyInvested());
         assertEquals(0, portfolio.getProfit());
@@ -48,7 +48,7 @@ public class TestPortfolio {
         stock1.setCurrentPrice(150);
         assertEquals(50, portfolio.getProfit());
 
-        portfolio.addCompany(company2);
+        assertTrue(portfolio.addCompany(company2));
         assertEquals(2, portfolio.getCompanies().size());
         assertEquals(100, portfolio.getMoneyInvested());
         assertEquals(50, portfolio.getProfit());

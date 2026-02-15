@@ -16,8 +16,8 @@ public class Portfolio {
         profit = 0;
     }
 
-    // EFFECTS: Adds a company to listOfCompanies if it is not inside
-    public void addCompany(Company company) {
+    // EFFECTS: Adds a company to listOfCompanies if it is not inside and returns whether progress is made or not
+    public boolean addCompany(Company company) {
         boolean inside = false;
         for (Company c : listOfCompanies) {
             if (c.getName().equals(company.getName())) {
@@ -29,6 +29,8 @@ public class Portfolio {
         if (!inside) {
             listOfCompanies.add(company);
         }
+
+        return (!inside);
 
     }
 

@@ -42,7 +42,7 @@ public class TestCompany {
         company.buyStock(stock2);
         stock1.setCurrentPrice(110);
         assertEquals(10, company.sellStock(0));
-        assertEquals(1, company.getNumberOfStocks());
+        assertEquals(1, company.getStocks().size());
 
         stock2.setCurrentPrice(25);
         assertEquals(-25, company.sellStock(0));
