@@ -15,13 +15,8 @@ public class StockPortfolioTrackerApp {
     }
 
     public void runApp() {
-        userPortfolio = new Portfolio();
-        input = new Scanner(System.in);
-
+        initialize();
         boolean running = true;
-
-        System.out.println("Welcome to Stock Portfolio Tracker.");
-
         while (running) {
             displayMenu();
 
@@ -29,105 +24,20 @@ public class StockPortfolioTrackerApp {
             userNumberInput = input.nextInt();
             input.nextLine();
 
-
             if (userNumberInput == 1) { // Add company to Portfolio
-                System.out.print("What is the company's name? ");
-                userStringInput = input.nextLine();
-                boolean addStatus = userPortfolio.addCompany(new Company(userStringInput));
-                if (addStatus) {
-                    System.out.println(userStringInput + " is successfully added.");
-                } else {
-                    System.out.println(userStringInput + " is already in your portfolio.");
-                }
+                handleAddingCompany();
             } else if (userNumberInput == 2) { // View companies in portfolio
                 displayCompanies();
             } else if (userNumberInput == 3) { // Buy more shares in a company
-                if (userPortfolio.getCompanies().size() == 0) {
-                    System.out.println("You have not added any companies. Please add a company first.");
-                } else {
-                    displayCompanies();
-                    System.out.print("Enter the company number you want to buy more shares in: ");
-                    userNumberInput = input.nextInt();
-                    input.nextLine();
-
-                    System.out.print("How many shares? ");
-                    int numberOfShares = input.nextInt();
-                    input.nextLine();
-
-                    System.out.print("What is the price of each share: ");
-                    int price = input.nextInt();
-                    input.nextLine();
-
-                    Company currentCompany = userPortfolio.getCompanies().get(userNumberInput-1);
-
-                    addShares(currentCompany, numberOfShares, price);
-                    currentCompany.setNewStockPrice(price);
-
-                }
+                handleBuyingShares();
             } else if (userNumberInput == 4) { // Sell shares in a company
-                if (userPortfolio.getCompanies().size() == 0) {
-                    System.out.println("You have not added any companies. Please add a company first.");
-                } else {
-                    if (userPortfolio.getCompanies().size() == 0) {
-                        System.out.println("You have not added any companies. Please add a company first.");
-                    } else {
-                        displayCompanies();
-                        System.out.print("Enter the company number you want to sell shares in: ");
-                        userNumberInput = input.nextInt();
-                        input.nextLine();
-
-                        Company currentCompany = userPortfolio.getCompanies().get(userNumberInput-1);
-
-                        if (currentCompany.getNumberOfStocks() == 0) {
-                            System.out.println("You have no shares in this company.");
-                        } else {
-                            displayShares(currentCompany);
-                            int shareToSell = input.nextInt();
-                            input.nextLine();
-
-                            sellShare(currentCompany, shareToSell);
-                        }
-                    }
-                }
+                handleSellingShares();
             } else if (userNumberInput == 5) { // Update a company's stock price
-                if (userPortfolio.getCompanies().size() == 0) {
-                    System.out.println("You have not added any companies. Please add a company first.");
-                } else {
-                    displayCompanies();
-                    System.out.print("Enter the company number you want to update the stock price of: ");
-                    userNumberInput = input.nextInt();
-                    input.nextLine();
-
-                    Company currentCompany = userPortfolio.getCompanies().get(userNumberInput-1);
-                    
-                    if (currentCompany.getNumberOfStocks() == 0) {
-                        System.out.println("You have no shares in this company.");
-                    } else {
-                        int price = input.nextInt();
-                        input.nextLine();
-
-                        currentCompany.setNewStockPrice(price);
-                    }
-                }
+                handleUpdateStockPrice();
             } else if (userNumberInput == 6) { // View profits
                 showProfit();
             } else if (userNumberInput == 7) { // View stocks in a company
-                if (userPortfolio.getCompanies().size() == 0) {
-                    System.out.println("You have not added any companies. Please add a company first.");
-                } else {
-                    displayCompanies();
-                    System.out.print("Enter the company number you want to view the shares in: ");
-                    userNumberInput = input.nextInt();
-                    input.nextLine();
-
-                    Company currentCompany = userPortfolio.getCompanies().get(userNumberInput-1);
-
-                    if (currentCompany.getNumberOfStocks() == 0) {
-                        System.out.println("You have no shares in this company.");
-                    } else {
-                        displayShares(currentCompany);
-                    }
-                }
+                handleViewCompanyStocks();
             } else if (userNumberInput == 8) { // Quit
                 System.out.println("Thanks for using this program.");
                 running = false;
@@ -135,6 +45,12 @@ public class StockPortfolioTrackerApp {
                 System.out.println("Please enter a number from 1-8");
             }
         }
+    }
+
+    public void initialize() {
+        userPortfolio = new Portfolio();
+        input = new Scanner(System.in);
+        System.out.println("Welcome to Stock Portfolio Tracker.");
     }
 
     public void displayMenu() {
@@ -159,7 +75,7 @@ public class StockPortfolioTrackerApp {
     }
 
     public void addShares(Company company, int numberShares, int price) {
-        for (int i=0; i<numberShares; i++) {
+        for (int i = 0; i < numberShares; i++) {
             company.buyStock(new Stock(price));
         }
         System.out.println("Successfully bought " + numberShares + " shares" );
@@ -175,15 +91,119 @@ public class StockPortfolioTrackerApp {
     }
 
     public void sellShare(Company company, int index) {
-        company.sellStock(index-1);
+        company.sellStock(index - 1);
         System.out.println("The share is successfully sold.");
     }
 
     public void showProfit() {
         for (Company company : userPortfolio.getCompanies()) {
-            System.out.println("You invested $" + company.getTotalMoneyInvested() + " in " + company.getName() + ", earning a profit of $" + company.getProfit());
+            System.out.println("You invested $" + company.getTotalMoneyInvested() + " in " + company.getName() +  ", earning a profit of $" + company.getProfit());
         }
         System.out.println("Overall, you invested $" + userPortfolio.getMoneyInvested() + " and your profit is $" + userPortfolio.getProfit());
+    }
+
+    public void handleAddingCompany() {
+        System.out.print("What is the company's name? ");
+        userStringInput = input.nextLine();
+        boolean addStatus = userPortfolio.addCompany(new Company(userStringInput));
+        if (addStatus) {
+            System.out.println(userStringInput + " is successfully added.");
+        } else {
+            System.out.println(userStringInput + " is already in your portfolio.");
+        }
+    }
+
+    public void handleBuyingShares() {
+        if (userPortfolio.getCompanies().size() == 0) {
+            System.out.println("You have not added any companies. Please add a company first.");
+        } else {
+            displayCompanies();
+            System.out.print("Enter the company number you want to buy more shares in: ");
+            userNumberInput = input.nextInt();
+            input.nextLine();
+
+            System.out.print("How many shares? ");
+            int numberOfShares = input.nextInt();
+            input.nextLine();
+
+            System.out.print("What is the price of each share: ");
+            int price = input.nextInt();
+            input.nextLine();
+
+            Company currentCompany = userPortfolio.getCompanies().get(userNumberInput - 1);
+
+            addShares(currentCompany, numberOfShares, price);
+            currentCompany.setNewStockPrice(price);
+
+        }
+    }
+
+    public void handleSellingShares() {
+        if (userPortfolio.getCompanies().size() == 0) {
+            System.out.println("You have not added any companies. Please add a company first.");
+        } else {
+            if (userPortfolio.getCompanies().size() == 0) {
+                System.out.println("You have not added any companies. Please add a company first.");
+            } else {
+                displayCompanies();
+                System.out.print("Enter the company number you want to sell shares in: ");
+                userNumberInput = input.nextInt();
+                input.nextLine();
+
+                Company currentCompany = userPortfolio.getCompanies().get(userNumberInput - 1);
+
+                if (currentCompany.getNumberOfStocks() == 0) {
+                    System.out.println("You have no shares in this company.");
+                } else {
+                    displayShares(currentCompany);
+                    int shareToSell = input.nextInt();
+                    input.nextLine();
+
+                    sellShare(currentCompany, shareToSell);
+                }
+            }
+        }
+    }
+
+    public void handleUpdateStockPrice() {
+        if (userPortfolio.getCompanies().size() == 0) {
+            System.out.println("You have not added any companies. Please add a company first.");
+        } else {
+            displayCompanies();
+            System.out.print("Enter the company number you want to update the stock price of: ");
+            userNumberInput = input.nextInt();
+            input.nextLine();
+
+            Company currentCompany = userPortfolio.getCompanies().get(userNumberInput - 1);
+            
+            if (currentCompany.getNumberOfStocks() == 0) {
+                System.out.println("You have no shares in this company.");
+            } else {
+                int price = input.nextInt();
+                input.nextLine();
+
+                currentCompany.setNewStockPrice(price);
+            }
+        }
+    }
+
+    public void handleViewCompanyStocks() {
+        if (userPortfolio.getCompanies().size() == 0) {
+            System.out.println("You have not added any companies. Please add a company first.");
+        } else {
+            displayCompanies();
+            System.out.print("Enter the company number you want to view the shares in: ");
+            userNumberInput = input.nextInt();
+            input.nextLine();
+
+            Company currentCompany = userPortfolio.getCompanies().get(userNumberInput - 1);
+
+            if (currentCompany.getNumberOfStocks() == 0) {
+                System.out.println("You have no shares in this company.");
+            } else {
+                displayShares(currentCompany);
+            }
+        }
     }
 
 }
