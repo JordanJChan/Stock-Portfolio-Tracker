@@ -43,10 +43,10 @@ public class TestPortfolio {
         stock1.setCurrentPrice(150);
         assertEquals(50, portfolio.getProfit());
 
-        portfolio.addCompany(company1);
+        portfolio.addCompany(company2);
         assertEquals(2, portfolio.getCompanies().size());
         assertEquals(100, portfolio.getMoneyInvested());
-        assertEquals(0, portfolio.getProfit());
+        assertEquals(50, portfolio.getProfit());
     }
 
 }

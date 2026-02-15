@@ -28,12 +28,24 @@ public class Portfolio {
 
     // EFFECTS: Calculates the total amount of money invested in the company and returns it
     public int getMoneyInvested() {
-        return 0; // stub
+        int total = 0;
+
+        for (Company company : listOfCompanies) {
+            total += company.getTotalMoneyInvested();
+        }
+
+        return total; 
     }
 
     // EFFECTS: Calculates the total profit and returns it
     public int getProfit() {
-        return 0; // stub
+        int totalProfit = 0;
+
+        for (Company company : listOfCompanies) {
+            totalProfit += company.getProfit();
+        }
+
+        return totalProfit; 
     }
 
 
