@@ -3,24 +3,33 @@ package model;
 import java.util.ArrayList;
 
 public class Company {
+    String name;
     ArrayList<Stock> listOfStock;
-    int totalNumberOfStocks;
     int totalMoneyInvested;
 
     // EFFECTS: Creates a company with empty list of stocks, zero for number of stocks
     //           and no money invested in it.
-    public Company() {
+    public Company(String name) {
+        this.name = name;
         listOfStock = new ArrayList<Stock>();
-        totalNumberOfStocks = 0;
         totalMoneyInvested = 0;
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds a stock into the listOfStock
     public void buyStock(Stock stock) {
 
     }
 
-    public void sellStock(Stock stock) {
+    // REQUIRES: index >= 0 and index < getNumberOfStocks()
+    // MODIFIES: this
+    // EFFECTS: Removes the stock at index in listOfStock and returns profit from it
+    public int sellStock(int index) {
+        return 0;
+    }
 
+    public String getName() {
+        return ""; // stub
     }
 
     public ArrayList<Stock> getStocks() {
@@ -37,10 +46,6 @@ public class Company {
         return 0; // stub
     }
     
-    // EFFECTS: Prints out all the stocks in the company
-    public void viewAllStocks() {
-
-    }
 
     
 
