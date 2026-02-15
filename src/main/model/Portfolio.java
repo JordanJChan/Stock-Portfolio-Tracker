@@ -26,11 +26,6 @@ public class Portfolio {
         return null; // stub
     }
 
-    // EFFECTS: Prints out all the company in the portfolio
-    public void viewAllCompanies() {
-
-    }
-
     // EFFECTS: Calculates the total amount of money invested in the company and returns it
     public int getMoneyInvested() {
         return 0; // stub

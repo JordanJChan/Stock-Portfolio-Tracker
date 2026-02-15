@@ -7,9 +7,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TestCompany {
-    Company company;
-    Stock stock1;
-    Stock stock2;
+    private Company company;
+    private Stock stock1;
+    private Stock stock2;
 
     @BeforeEach
     void runBefore() {
