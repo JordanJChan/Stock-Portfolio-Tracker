@@ -18,12 +18,12 @@ public class Portfolio {
 
     // EFFECTS: Adds a company to listOfCompanies if it is not inside
     public void addCompany(Company company) {
-
+        this.listOfCompanies.add(company);
     }
 
     // EFFECTS: Returns the list of companies with the companies in the order they were added in
     public ArrayList<Company> getCompanies() {
-        return null; // stub
+        return this.listOfCompanies; 
     }
 
     // EFFECTS: Calculates the total amount of money invested in the company and returns it

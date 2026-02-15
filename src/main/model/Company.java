@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+// Represents a company with a name, list of stocks the user owns, and amount of money invested in it
 public class Company {
     String name;
     ArrayList<Stock> listOfStock;
@@ -18,37 +19,52 @@ public class Company {
     // MODIFIES: this
     // EFFECTS: adds a stock into the listOfStock
     public void buyStock(Stock stock) {
-
+        listOfStock.add(stock);
     }
 
     // REQUIRES: index >= 0 and index < getNumberOfStocks()
     // MODIFIES: this
     // EFFECTS: Removes the stock at index in listOfStock and returns profit from it
     public int sellStock(int index) {
-        return 0;
+        Stock removeStock = listOfStock.get(0);
+        listOfStock.remove(index);
+
+        return removeStock.getProfit();
     }
 
     public String getName() {
-        return ""; // stub
+        return this.name; 
     }
 
     public ArrayList<Stock> getStocks() {
-        return null; // stub
+        return listOfStock;
     }
 
     // EFFECTS: returns the number of stocks that is in the company
     public int getNumberOfStocks() {
-        return 0; // stub
+        return this.listOfStock.size(); 
     }
 
     // EFFECTS: Calculates the total amount of money invested and returns it
     public int getTotalMoneyInvested() {
-        return 0; // stub
+        int total = 0;
+
+        for (Stock stock : listOfStock) {
+            total += stock.priceWhenBought;
+        }
+
+        return total; 
     }
 
-    // Calculates and returns the profit from stocks in the
+    // EFFECTS: Calculates and returns the profit from stocks in the
     public int getProfit() {
-        return 0; // stub
+        int profit = 0;
+
+        for (Stock stock : listOfStock) {
+            profit += stock.getProfit();
+        }
+
+        return profit; 
     }
     
 

@@ -16,8 +16,8 @@ public class TestStock {
 
     @Test
     void testConstructor() {
-        assertEquals(0, stock.getCurrentPrice());
-        assertEquals(0, stock.getPriceWhenBought());
+        assertEquals(100, stock.getCurrentPrice());
+        assertEquals(100, stock.getPriceWhenBought());
     }
 
     @Test
