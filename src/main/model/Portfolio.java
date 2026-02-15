@@ -21,6 +21,7 @@ public class Portfolio {
 
     }
 
+    // EFFECTS: Returns the list of companies with the companies in the order they were added in
     public ArrayList<Company> getCompanies() {
         return null; // stub
     }
