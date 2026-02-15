@@ -41,18 +41,23 @@ public class StockPortfolioTrackerApp {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: Initializes the user portfolio and the ability to get input
     public void initialize() {
         userPortfolio = new Portfolio();
         input = new Scanner(System.in);
         System.out.println("Welcome to Stock Portfolio Tracker.");
     }
 
+    // MODIFIES: this
+    // EFFECTS: Asks and gets the user's choice
     public void getUserChoice() {
         System.out.print("Enter your choice number: ");
         userNumberInput = input.nextInt();
         input.nextLine();
     }
 
+    // EFFECTS: Displaly the choices for the user
     public void displayMenu() {
         System.out.println("\n");
         System.out.println("\t1. Add a company into portfolio");
@@ -66,6 +71,7 @@ public class StockPortfolioTrackerApp {
         System.out.println("\n");
     }
 
+    // EFFECTS: Displays all the companies in the portfolio
     public void displayCompanies() {
         int position = 1;
         for (Company c : userPortfolio.getCompanies()) {
@@ -74,6 +80,9 @@ public class StockPortfolioTrackerApp {
         }
     }
 
+    // REQUIRES: numberShares > 0 and price >= 0
+    // MODIFIES: company
+    // EFFECTS: Buys shares for the company
     public void addShares(Company company, int numberShares, int price) {
         for (int i = 0; i < numberShares; i++) {
             company.buyStock(new Stock(price));
@@ -81,6 +90,7 @@ public class StockPortfolioTrackerApp {
         System.out.println("Successfully bought " + numberShares + " shares");
     }
 
+    // EFFECTS: Displays the shares in a company
     public void displayShares(Company company) {
         System.out.println("The current stock price is " + company.getStocks().get(0).getCurrentPrice());
         int index = 1;
@@ -92,11 +102,15 @@ public class StockPortfolioTrackerApp {
         }
     }
 
+    // REQUIRES: index >= 0 and index < company.getNumberOfStocks()
+    // MODIFIES: company
+    // EFFECTS: Sells the share at given index
     public void sellShare(Company company, int index) {
         company.sellStock(index - 1);
         System.out.println("The share is successfully sold.");
     }
 
+    // EFFECTS: Displays the profit from the portfolio
     public void showProfit() {
         for (Company company : userPortfolio.getCompanies()) {
             System.out.println(
@@ -108,6 +122,8 @@ public class StockPortfolioTrackerApp {
                 + " and your profit is $" + userPortfolio.getProfit());
     }
 
+    // MODIFIES: userPortfolio
+    // EFFECTS: Gets information for a company and adds it into the portfolio
     public void handleAddingCompany() {
         System.out.print("What is the company's name? ");
         userStringInput = input.nextLine();
@@ -119,6 +135,8 @@ public class StockPortfolioTrackerApp {
         }
     }
 
+    // MODIFIES: company
+    // EFFECTS: Gets the information for a share and buys it
     public void handleBuyingShares() {
         if (userPortfolio.getCompanies().size() == 0) {
             System.out.println("You have not added any companies. Please add a company first.");
@@ -144,6 +162,8 @@ public class StockPortfolioTrackerApp {
         }
     }
 
+    // MODIFIES: company
+    // EFFECTS: Gets which share the user wants to sell and removes it
     public void handleSellingShares() {
         if (userPortfolio.getCompanies().size() == 0) {
             System.out.println("You have not added any companies. Please add a company first.");
@@ -172,6 +192,7 @@ public class StockPortfolioTrackerApp {
         }
     }
 
+    // EFFECTS: Updates the stock price
     public void handleUpdateStockPrice() {
         if (userPortfolio.getCompanies().size() == 0) {
             System.out.println("You have not added any companies. Please add a company first.");
@@ -195,6 +216,7 @@ public class StockPortfolioTrackerApp {
         }
     }
 
+    // EFFECTS: Displays the selected company's stock information to user
     public void handleViewCompanyStocks() {
         if (userPortfolio.getCompanies().size() == 0) {
             System.out.println("You have not added any companies. Please add a company first.");

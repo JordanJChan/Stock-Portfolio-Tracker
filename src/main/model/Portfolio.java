@@ -40,6 +40,7 @@ public class Portfolio {
         return this.listOfCompanies; 
     }
 
+    // MODIFIES: this
     // EFFECTS: Calculates the total amount of money invested in the company and returns it
     public int getMoneyInvested() {
         int total = 0;
@@ -47,8 +48,8 @@ public class Portfolio {
         for (Company company : listOfCompanies) {
             total += company.getTotalMoneyInvested();
         }
-
-        return total; 
+        this.moneyInvested = total;
+        return this.moneyInvested; 
     }
 
     // MODIFIES: this

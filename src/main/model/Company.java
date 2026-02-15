@@ -45,6 +45,7 @@ public class Company {
         return this.listOfStock.size(); 
     }
 
+    // MODIFIES: this
     // EFFECTS: Calculates the total amount of money invested and returns it
     public int getTotalMoneyInvested() {
         int total = 0;
@@ -52,8 +53,9 @@ public class Company {
         for (Stock stock : listOfStock) {
             total += stock.priceWhenBought;
         }
+        this.totalMoneyInvested = total;
 
-        return total; 
+        return this.totalMoneyInvested; 
     }
 
     // EFFECTS: Calculates and returns the profit from stocks in the
