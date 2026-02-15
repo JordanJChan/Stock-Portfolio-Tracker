@@ -11,19 +11,14 @@ public class StockPortfolioTrackerApp {
     private int userNumberInput;
 
     public StockPortfolioTrackerApp() {
+        initialize();
         runApp();
     }
 
     public void runApp() {
-        initialize();
-        boolean running = true;
-        while (running) {
+        while (true) {
             displayMenu();
-
-            System.out.print("Enter your choice number: ");
-            userNumberInput = input.nextInt();
-            input.nextLine();
-
+            getUserChoice();
             if (userNumberInput == 1) { // Add company to Portfolio
                 handleAddingCompany();
             } else if (userNumberInput == 2) { // View companies in portfolio
@@ -39,8 +34,7 @@ public class StockPortfolioTrackerApp {
             } else if (userNumberInput == 7) { // View stocks in a company
                 handleViewCompanyStocks();
             } else if (userNumberInput == 8) { // Quit
-                System.out.println("Thanks for using this program.");
-                running = false;
+                break;
             } else {
                 System.out.println("Please enter a number from 1-8");
             }
@@ -51,6 +45,12 @@ public class StockPortfolioTrackerApp {
         userPortfolio = new Portfolio();
         input = new Scanner(System.in);
         System.out.println("Welcome to Stock Portfolio Tracker.");
+    }
+
+    public void getUserChoice() {
+        System.out.print("Enter your choice number: ");
+        userNumberInput = input.nextInt();
+        input.nextLine();
     }
 
     public void displayMenu() {
@@ -78,14 +78,16 @@ public class StockPortfolioTrackerApp {
         for (int i = 0; i < numberShares; i++) {
             company.buyStock(new Stock(price));
         }
-        System.out.println("Successfully bought " + numberShares + " shares" );
+        System.out.println("Successfully bought " + numberShares + " shares");
     }
 
     public void displayShares(Company company) {
         System.out.println("The current stock price is " + company.getStocks().get(0).getCurrentPrice());
         int index = 1;
         for (Stock share : company.getStocks()) {
-            System.out.println(index + ". A stock bought at $" + share.getPriceWhenBought() + ". A profit of $" + share.getProfit());
+            System.out.println(
+                    index + ". A stock bought at $" + share.getPriceWhenBought()
+                    + ". A profit of $" + share.getProfit());
             index++;
         }
     }
@@ -97,9 +99,13 @@ public class StockPortfolioTrackerApp {
 
     public void showProfit() {
         for (Company company : userPortfolio.getCompanies()) {
-            System.out.println("You invested $" + company.getTotalMoneyInvested() + " in " + company.getName() +  ", earning a profit of $" + company.getProfit());
+            System.out.println(
+                    "You invested $" + company.getTotalMoneyInvested() + " in " + company.getName() 
+                    +  ", earning a profit of $"  + company.getProfit());
         }
-        System.out.println("Overall, you invested $" + userPortfolio.getMoneyInvested() + " and your profit is $" + userPortfolio.getProfit());
+        System.out.println(
+                "Overall, you invested $" + userPortfolio.getMoneyInvested() 
+                + " and your profit is $" + userPortfolio.getProfit());
     }
 
     public void handleAddingCompany() {
@@ -156,6 +162,7 @@ public class StockPortfolioTrackerApp {
                     System.out.println("You have no shares in this company.");
                 } else {
                     displayShares(currentCompany);
+                    System.out.print("Enter which share you want to sell: ");
                     int shareToSell = input.nextInt();
                     input.nextLine();
 
@@ -179,6 +186,7 @@ public class StockPortfolioTrackerApp {
             if (currentCompany.getNumberOfStocks() == 0) {
                 System.out.println("You have no shares in this company.");
             } else {
+                System.out.print("What is the new price? ");
                 int price = input.nextInt();
                 input.nextLine();
 

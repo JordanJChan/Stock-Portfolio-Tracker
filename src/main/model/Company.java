@@ -8,7 +8,7 @@ public class Company {
     ArrayList<Stock> listOfStock;
     int totalMoneyInvested;
 
-    // EFFECTS: Creates a company with empty list of stocks, zero for number of stocks
+    // EFFECTS: Creates a company with a name, empty list of stocks, 
     //           and no money invested in it.
     public Company(String name) {
         this.name = name;
