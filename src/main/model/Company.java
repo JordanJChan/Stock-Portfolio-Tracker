@@ -46,7 +46,7 @@ public class Company {
         return 0; // stub
     }
 
-    // Calculates and returns the profit from stocks in the company
+    // Calculates and returns the profit from stocks in the
     public int getProfit() {
         return 0; // stub
     }

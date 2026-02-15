@@ -48,4 +48,14 @@ public class TestCompany {
         assertEquals(-25, company.sellStock(0));
         assertEquals(0, company.getNumberOfStocks());
     }
+
+    @Test
+    void testGetProfit() {
+        company.buyStock(stock1);
+        company.buyStock(stock2);
+        stock1.setCurrentPrice(110);
+        stock2.setCurrentPrice(25);
+
+        assertEquals(-15, company.getProfit());
+    }
 }

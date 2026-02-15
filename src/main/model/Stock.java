@@ -11,21 +11,23 @@ public class Stock {
         currentPrice = price;
         priceWhenBought = price;
     }
-
+    
+    
     public int getCurrentPrice() {
-        return 0; // stub
+        return this.currentPrice; 
     }
 
     public int getPriceWhenBought() {
-        return 0; // stub
+        return this.priceWhenBought; 
     }
 
     public void setCurrentPrice(int price) {
-
+        this.currentPrice = price;
     }
 
+    // EFFECTS: returns the profit by calculating the difference between currentPrice and priceWhenBought
     public int getProfit() {
-        return 0; // stub
+        return (getCurrentPrice() - getPriceWhenBought());
     }
 
 
