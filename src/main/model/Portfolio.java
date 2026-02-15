@@ -18,7 +18,18 @@ public class Portfolio {
 
     // EFFECTS: Adds a company to listOfCompanies if it is not inside
     public void addCompany(Company company) {
-        this.listOfCompanies.add(company);
+        boolean inside = false;
+        for (Company c : listOfCompanies) {
+            if (c.getName().equals(company.getName())) {
+                inside = true;
+                break;
+            }
+        }
+
+        if (!inside) {
+            listOfCompanies.add(company);
+        }
+
     }
 
     // EFFECTS: Returns the list of companies with the companies in the order they were added in

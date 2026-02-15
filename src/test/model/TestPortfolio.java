@@ -35,6 +35,11 @@ public class TestPortfolio {
         assertEquals(0, portfolio.getMoneyInvested());
         assertEquals(0, portfolio.getProfit());
 
+        portfolio.addCompany(company1);
+        assertEquals(1, portfolio.getCompanies().size());
+        assertEquals(0, portfolio.getMoneyInvested());
+        assertEquals(0, portfolio.getProfit());
+
         company1.buyStock(stock1);
         assertEquals(1, portfolio.getCompanies().size());
         assertEquals(100, portfolio.getMoneyInvested());
