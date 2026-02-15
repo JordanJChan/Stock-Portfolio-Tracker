@@ -45,6 +45,11 @@ public class Company {
     public int getTotalMoneyInvested() {
         return 0; // stub
     }
+
+    // Calculates and returns the profit from stocks in the company
+    public int getProfit() {
+        return 0; // stub
+    }
     
 
     

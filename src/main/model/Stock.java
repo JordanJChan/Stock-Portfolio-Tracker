@@ -24,6 +24,10 @@ public class Stock {
 
     }
 
+    public int getProfit() {
+        return 0; // stub
+    }
+
 
 
 }
