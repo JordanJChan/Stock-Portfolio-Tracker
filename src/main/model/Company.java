@@ -66,6 +66,15 @@ public class Company {
 
         return profit; 
     }
+
+    // REQUIRES: newPrice >= 0
+    // MODIFIES: this
+    // EFFECTS: Sets all the shares price to be at newPrice
+    public void setNewStockPrice(int newPrice) {
+        for (Stock stock : listOfStock) {
+            stock.setCurrentPrice(newPrice);
+        }
+    }
     
 
     

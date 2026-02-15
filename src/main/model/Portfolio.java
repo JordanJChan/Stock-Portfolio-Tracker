@@ -16,6 +16,7 @@ public class Portfolio {
         profit = 0;
     }
 
+    // MODIFIES: this
     // EFFECTS: Adds a company to listOfCompanies if it is not inside and returns whether progress is made or not
     public boolean addCompany(Company company) {
         boolean inside = false;
@@ -50,6 +51,7 @@ public class Portfolio {
         return total; 
     }
 
+    // MODIFIES: this
     // EFFECTS: Calculates the total profit and returns it
     public int getProfit() {
         int totalProfit = 0;
@@ -57,8 +59,9 @@ public class Portfolio {
         for (Company company : listOfCompanies) {
             totalProfit += company.getProfit();
         }
+        this.profit = totalProfit;
 
-        return totalProfit; 
+        return this.profit; 
     }
 
 
