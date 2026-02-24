@@ -4,17 +4,21 @@ import java.util.Scanner;
 
 import model.*;
 
+// Represents the stock portfolio tracker app
 public class StockPortfolioTrackerApp {
     private Portfolio userPortfolio;
     private Scanner input;
     private String userStringInput;
     private int userNumberInput;
 
+    // EFFECTS: Constructs the app and runs it
     public StockPortfolioTrackerApp() {
         initialize();
         runApp();
     }
 
+    // MODIFIES: this
+    // EFFECTS: Gets user input and processes it
     public void runApp() {
         while (true) {
             displayMenu();

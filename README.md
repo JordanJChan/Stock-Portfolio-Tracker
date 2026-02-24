@@ -10,4 +10,5 @@ My project will be a simple **Stock Portfolio Tracker** that allows the user to 
 - As a user, I want to sell some shares from a company.
 - As a user, I want to view the shares in a company that I own. 
 - As a user, I want to update the current stock price of a company to calculate how much money I am earning or losing.
-
+- As a user, I want to have the option to save the companies and stocks in the portfolio in a file.
+- As a user, I want to have the option to load the companies and stocks from the file.
