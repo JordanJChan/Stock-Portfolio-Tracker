@@ -2,9 +2,11 @@ package ui;
 
 import java.util.Scanner;
 
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.*;
 
 // Represents the stock portfolio tracker app
+@ExcludeFromJacocoGeneratedReport
 public class StockPortfolioTrackerApp {
     private Portfolio userPortfolio;
     private Scanner input;
