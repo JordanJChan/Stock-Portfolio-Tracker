@@ -1,4 +1,4 @@
-package Persistence;
+package persistence;
 
 import model.Company;
 import model.Portfolio;
@@ -38,7 +38,7 @@ public class JsonReader {
     }
 
     // EFFECTS: parses portfolio from JSON object and returns it
-    private Portfolio parseWorkRoom(JSONObject jsonObject) {
+    private Portfolio parsePortfolio(JSONObject jsonObject) {
         return null; // stub
     }
 
