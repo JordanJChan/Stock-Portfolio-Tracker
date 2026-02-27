@@ -1,0 +1,18 @@
+{
+    "moneyInvested": 0,
+    "profit": 0,
+
+    "listOfCompanies": [
+        {
+            "name": "",
+            "totalMoneyInvested": 0,
+            "listOfStock": [
+                {
+                    "currentPrice": 0,
+                    "priceWhenBought": 0
+                }
+            ]
+        }
+    ]
+
+}

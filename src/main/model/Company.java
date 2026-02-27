@@ -1,9 +1,12 @@
 package model;
-
+import persistence.Writable;
 import java.util.ArrayList;
 
+import org.json.JSONObject;
+import org.json.JSONArray;
+
 // Represents a company with a name, list of stocks the user owns, and amount of money invested in it
-public class Company {
+public class Company implements Writable{
     String name;
     ArrayList<Stock> listOfStock;
     int totalMoneyInvested;
@@ -76,6 +79,17 @@ public class Company {
         for (Stock stock : listOfStock) {
             stock.setCurrentPrice(newPrice);
         }
+    }
+
+    @Override
+    public JSONObject toJson() {
+        return null; // stub
+
+    }
+
+    // EFFECTS: retrusn the stocks in the company as a JSON array
+    public JSONArray stocksToJson() {
+        return null;
     }
     
 

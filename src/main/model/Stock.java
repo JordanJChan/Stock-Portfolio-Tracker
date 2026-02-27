@@ -1,7 +1,11 @@
 package model;
 
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // Represents a stock that has its current price and the price when it is bought.
-public class Stock {
+public class Stock implements Writable{
     int currentPrice;
     int priceWhenBought;
 
@@ -28,6 +32,12 @@ public class Stock {
     // EFFECTS: returns the profit by calculating the difference between currentPrice and priceWhenBought
     public int getProfit() {
         return (getCurrentPrice() - getPriceWhenBought());
+    }
+
+
+    @Override
+    public JSONObject toJson() {
+        return null; // stub
     }
 
 

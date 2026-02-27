@@ -1,10 +1,15 @@
 package model;
+import persistence.Writable;
 
 import java.util.ArrayList;
 
+import org.json.JSONObject;
+import org.json.JSONArray;
+
+
 // A portfolio with a list of companies the user owns share in, the amount of money invested
 // and the profit they are making
-public class Portfolio {
+public class Portfolio implements Writable{
     ArrayList<Company> listOfCompanies;
     int moneyInvested;
     int profit;
@@ -63,6 +68,16 @@ public class Portfolio {
         this.profit = totalProfit;
 
         return this.profit; 
+    }
+
+    @Override
+    public JSONObject toJson() {
+        return null; // stub
+    }
+
+    // EFFECTS: returns the companies in the portfolio as a JSON array
+    public JSONArray companiesToJson() {
+        return null; // stub
     }
 
 
