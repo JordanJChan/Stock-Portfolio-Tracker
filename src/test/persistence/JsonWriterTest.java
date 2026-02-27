@@ -12,6 +12,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExcludeFromJacocoGeneratedReport
-public class JsonWriterTest {
+public class JsonWriterTest extends JsonTest {
     
 }
