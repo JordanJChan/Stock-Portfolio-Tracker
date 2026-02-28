@@ -1,3 +1,24 @@
 {
-    
+    "moneyInvested": 400,
+    "profit": 0,
+
+    "listOfCompanies": [
+        {
+            "name": "Tesla",
+            "totalMoneyInvested": 400,
+            "listOfStock": [
+                {
+                    "currentPrice": 200,
+                    "priceWhenBought": 200
+                },
+
+                {
+                    "currentPrice": 200,
+                    "priceWhenBought": 200
+                }
+
+            ]
+        }
+    ]
+
 }
