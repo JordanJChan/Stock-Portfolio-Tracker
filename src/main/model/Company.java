@@ -87,13 +87,25 @@ public class Company implements Writable{
 
     @Override
     public JSONObject toJson() {
-        return null; // stub
+        JSONObject json = new JSONObject();
+
+        json.put("name", this.name);
+        json.put("totalMoneyInvested", this.totalMoneyInvested);
+        json.put("listOfStock", stocksToJson());
+
+        return json;
 
     }
 
     // EFFECTS: retrusn the stocks in the company as a JSON array
     public JSONArray stocksToJson() {
-        return null;
+        JSONArray jsonArray = new JSONArray();
+
+        for (Stock stock : listOfStock) {
+            jsonArray.put(stock.toJson());
+        }
+
+        return jsonArray;
     }
     
 

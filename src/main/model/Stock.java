@@ -37,7 +37,12 @@ public class Stock implements Writable{
 
     @Override
     public JSONObject toJson() {
-        return null; // stub
+        JSONObject json = new JSONObject();
+
+        json.put("currentPrice", this.currentPrice);
+        json.put("priceWhenBought", this.priceWhenBought);
+
+        return json;
     }
 
 

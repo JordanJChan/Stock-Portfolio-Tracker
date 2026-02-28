@@ -70,14 +70,28 @@ public class Portfolio implements Writable{
         return this.profit; 
     }
 
+    // EFFECTS: Converts the portfolio to json
     @Override
     public JSONObject toJson() {
-        return null; // stub
+        JSONObject json = new JSONObject();
+
+        json.put("moneyInvested", this.moneyInvested);
+        json.put("profit", this.profit);
+        json.put("listOfCompanies", companiesToJson());
+
+
+        return json; 
     }
 
     // EFFECTS: returns the companies in the portfolio as a JSON array
     public JSONArray companiesToJson() {
-        return null; // stub
+        JSONArray jsonArray = new JSONArray();
+
+        for (Company company : listOfCompanies) {
+            jsonArray.put(company.toJson());
+        }
+
+        return jsonArray; 
     }
 
 
