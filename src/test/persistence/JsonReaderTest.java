@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class JsonReaderTest extends JsonTest{
     
     @Test
-    void testReaderNonExistentFile() {
+    public void testReaderNonExistentFile() {
         JsonReader reader = new JsonReader("./data/FileDoesNotExist.json");
         try {
             Portfolio p = reader.read();
@@ -28,8 +28,8 @@ public class JsonReaderTest extends JsonTest{
     }
 
     @Test
-    void testReaderEmptyPortfolio() {
-        JsonReader reader = new JsonReader("./data/FileDoesNotExist.json");
+    public void testReaderEmptyPortfolio() {
+        JsonReader reader = new JsonReader("./data/testReaderEmptyPortfolio.json");
         try {
             Portfolio p = reader.read();
             assertEquals(0, p.getMoneyInvested());

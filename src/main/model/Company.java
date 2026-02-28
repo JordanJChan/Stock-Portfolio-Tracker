@@ -56,9 +56,13 @@ public class Company implements Writable{
         for (Stock stock : listOfStock) {
             total += stock.priceWhenBought;
         }
-        this.totalMoneyInvested = total;
+        setTotalMoneyInvested(total);
 
         return this.totalMoneyInvested; 
+    }
+
+    public void setTotalMoneyInvested(int total) {
+        this.totalMoneyInvested = total;
     }
 
     // EFFECTS: Calculates and returns the profit from stocks in the
