@@ -40,6 +40,12 @@ public class JsonReaderTest extends JsonTest{
         }
     }
 
+    @Test
+    public void testReaderGeneralPortfolio() {
+        JsonReader reader = new JsonReader("./data/testReaderEmptyPortfolio.json");
+        
+    }
+
 
 
 }
