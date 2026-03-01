@@ -11,4 +11,3 @@ public interface Writable {
     JSONObject toJson();
 }
 
-/////////// NEED TO HAVE model classes implement this interface

@@ -269,6 +269,7 @@ public class StockPortfolioTrackerApp {
         }
     }
 
+    // EFFECTS: Loads the portfolio from the file
     public void loadPortfolio() {
         try {
             userPortfolio = jsonReader.read();

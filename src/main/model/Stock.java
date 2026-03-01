@@ -34,7 +34,7 @@ public class Stock implements Writable {
         return (getCurrentPrice() - getPriceWhenBought());
     }
 
-
+    // EFFECTS: converts the stock to a json object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

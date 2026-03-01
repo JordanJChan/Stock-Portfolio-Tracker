@@ -87,6 +87,7 @@ public class Company implements Writable {
         }
     }
 
+    // EFFECTS: Converts the company to json object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
