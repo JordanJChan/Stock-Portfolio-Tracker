@@ -7,8 +7,6 @@ import model.Stock;
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.Test;
 
@@ -57,9 +55,13 @@ public class JsonWriterTest extends JsonTest {
             Company company1 = new Company("Tesla");
             Company company2 = new Company("Nvidia");
             portfolio.addCompany(company1);
+            portfolio.addCompany(company1);
             portfolio.addCompany(company2);
             company1.buyStock(new Stock(200));
             company1.buyStock(new Stock(200));
+            company1.buyStock(new Stock(200));
+            company1.sellStock(2);
+            company1.setNewStockPrice(200);
 
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralPortfolio.json");
             writer.open();
