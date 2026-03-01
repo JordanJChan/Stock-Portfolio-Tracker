@@ -1,18 +1,5 @@
 {
-    "moneyInvested": 0,
+    "listOfCompanies": [],
     "profit": 0,
-
-    "listOfCompanies": [
-        {
-            "name": "",
-            "totalMoneyInvested": 0,
-            "listOfStock": [
-                {
-                    "currentPrice": 0,
-                    "priceWhenBought": 0
-                }
-            ]
-        }
-    ]
-
+    "moneyInvested": 0
 }

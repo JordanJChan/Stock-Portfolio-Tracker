@@ -52,6 +52,7 @@ public class JsonReaderTest extends JsonTest{
             ArrayList<Company> companies = portfolio.getCompanies();
             Company company1 = companies.get(0);
             assertEquals(1, companies.size());
+            assertEquals(2, company1.getNumberOfStocks());
             checkCompany("Tesla", company1.getStocks(), 400, company1);
 
             checkStock(200, 200, company1.getStocks().get(0));

@@ -50,4 +50,38 @@ public class JsonWriterTest extends JsonTest {
         }
     }
 
+    @Test
+    public void testWriterGeneralPortfolio() {
+        try {
+            Portfolio portfolio = new Portfolio();
+            Company company1 = new Company("Tesla");
+            Company company2 = new Company("Nvidia");
+            portfolio.addCompany(company1);
+            portfolio.addCompany(company2);
+            company1.buyStock(new Stock(200));
+            company1.buyStock(new Stock(200));
+
+            JsonWriter writer = new JsonWriter("./data/testWriterGeneralPortfolio.json");
+            writer.open();
+            writer.write(portfolio);
+            writer.close();
+
+            JsonReader reader = new JsonReader("./data/testWriterGeneralPortfolio.json");
+            portfolio = reader.read();
+            assertEquals(400, portfolio.getMoneyInvested());
+            assertEquals(0, portfolio.getProfit());
+            assertEquals(2, portfolio.getCompanies().size());
+
+            company1 = portfolio.getCompanies().get(0);
+            company2 = portfolio.getCompanies().get(1);
+            checkCompany("Tesla", company1.getStocks(), 400, company1);
+            checkStock(200, 200, company1.getStocks().get(0));
+            checkStock(200, 200, company1.getStocks().get(1));
+            checkCompany("Nvidia", company2.getStocks(), 0, company2);
+
+        } catch (IOException e) {
+            fail("Exception should not have occurred");
+        }
+    }
+
 }
