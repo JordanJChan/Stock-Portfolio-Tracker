@@ -1,9 +1,12 @@
 package ui;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.*;
+import persistence.*;
 
 // Represents the stock portfolio tracker app
 @ExcludeFromJacocoGeneratedReport
@@ -12,6 +15,9 @@ public class StockPortfolioTrackerApp {
     private Scanner input;
     private String userStringInput;
     private int userNumberInput;
+    private static final String JSON_STORE = "./data/portfolio.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: Constructs the app and runs it
     public StockPortfolioTrackerApp() {
@@ -39,7 +45,11 @@ public class StockPortfolioTrackerApp {
                 showProfit();
             } else if (userNumberInput == 7) { // View stocks in a company
                 handleViewCompanyStocks();
-            } else if (userNumberInput == 8) { // Quit
+            } else if (userNumberInput == 8) { // Save Portfolio
+                savePortfolio();
+            } else if (userNumberInput == 9) { // Load Portfolio
+                loadPortfolio();
+            } else if (userNumberInput == 10) { // Quit
                 break;
             } else {
                 System.out.println("Please enter a number from 1-8");
@@ -52,6 +62,8 @@ public class StockPortfolioTrackerApp {
     public void initialize() {
         userPortfolio = new Portfolio();
         input = new Scanner(System.in);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         System.out.println("Welcome to Stock Portfolio Tracker.");
     }
 
@@ -73,7 +85,9 @@ public class StockPortfolioTrackerApp {
         System.out.println("\t5. Update a company's stock price");
         System.out.println("\t6. View profits");
         System.out.println("\t7. View stocks in a company");
-        System.out.println("\t8. Quit");
+        System.out.println("\t8. Save portfolio");
+        System.out.println("\t9. Load portfolio");
+        System.out.println("\t10. Quit");
         System.out.println("\n");
     }
 
@@ -239,6 +253,27 @@ public class StockPortfolioTrackerApp {
             } else {
                 displayShares(currentCompany);
             }
+        }
+    }
+
+    // EFFECTS: Saves the portfolio into a file
+    public void savePortfolio() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(userPortfolio);
+            jsonWriter.close();
+            System.out.println("Successfully saved portfolio.");
+        } catch (FileNotFoundException e) {
+            System.out.println("There was a problem saving the portfolio");
+        }
+    }
+
+    public void loadPortfolio() {
+        try {
+            userPortfolio = jsonReader.read();
+            System.out.println("Successfully loaded the portfolio.");
+        } catch (IOException e) {
+            System.out.println("There was a problem loading the portfolio.");
         }
     }
 

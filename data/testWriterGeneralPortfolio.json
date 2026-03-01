@@ -4,11 +4,11 @@
             "listOfStock": [
                 {
                     "priceWhenBought": 200,
-                    "currentPrice": 200
+                    "currentPrice": 300
                 },
                 {
                     "priceWhenBought": 200,
-                    "currentPrice": 200
+                    "currentPrice": 300
                 }
             ],
             "name": "Tesla",

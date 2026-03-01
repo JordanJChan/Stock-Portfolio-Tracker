@@ -24,7 +24,7 @@ public class JsonReaderTest extends JsonTest{
             Portfolio p = reader.read();
             fail("File does not exist, so it shoud not have pass");
         } catch (IOException e) {
-
+            // pass
         }
     }
 
