@@ -1,4 +1,5 @@
 package ui;
+
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 @ExcludeFromJacocoGeneratedReport

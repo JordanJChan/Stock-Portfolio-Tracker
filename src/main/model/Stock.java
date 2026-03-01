@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 // Represents a stock that has its current price and the price when it is bought.
-public class Stock implements Writable{
+public class Stock implements Writable {
     int currentPrice;
     int priceWhenBought;
 

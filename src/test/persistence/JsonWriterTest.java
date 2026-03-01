@@ -54,13 +54,13 @@ public class JsonWriterTest extends JsonTest {
             Portfolio portfolio = new Portfolio();
             Company company1 = new Company("Tesla");
             Company company2 = new Company("Nvidia");
-            portfolio.addCompany(company1);
-            portfolio.addCompany(company1);
-            portfolio.addCompany(company2);
+            assertTrue(portfolio.addCompany(company1));
+            assertFalse(portfolio.addCompany(company1));
+            assertTrue(portfolio.addCompany(company2));
             company1.buyStock(new Stock(200));
             company1.buyStock(new Stock(200));
             company1.buyStock(new Stock(200));
-            company1.sellStock(2);
+            assertEquals(0, company1.sellStock(2));
             company1.setNewStockPrice(300);
 
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralPortfolio.json");

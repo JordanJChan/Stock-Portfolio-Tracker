@@ -27,6 +27,7 @@ public class StockPortfolioTrackerApp {
 
     // MODIFIES: this
     // EFFECTS: Gets user input and processes it
+    @SuppressWarnings("methodlength")
     public void runApp() {
         while (true) {
             displayMenu();

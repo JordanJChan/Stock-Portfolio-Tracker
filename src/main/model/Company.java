@@ -1,12 +1,14 @@
 package model;
+
 import persistence.Writable;
+
 import java.util.ArrayList;
 
 import org.json.JSONObject;
 import org.json.JSONArray;
 
 // Represents a company with a name, list of stocks the user owns, and amount of money invested in it
-public class Company implements Writable{
+public class Company implements Writable {
     String name;
     ArrayList<Stock> listOfStock;
     int totalMoneyInvested;

@@ -1,4 +1,5 @@
 package model;
+
 import persistence.Writable;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import org.json.JSONArray;
 
 // A portfolio with a list of companies the user owns share in, the amount of money invested
 // and the profit they are making
-public class Portfolio implements Writable{
+public class Portfolio implements Writable {
     ArrayList<Company> listOfCompanies;
     int moneyInvested;
     int profit;
