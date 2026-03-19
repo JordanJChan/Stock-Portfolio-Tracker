@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
-//@ExcludeFromJacocoGeneratedReport
+@ExcludeFromJacocoGeneratedReport
 public class TestPortfolio {
     private Portfolio portfolio;
     private Company company1;
