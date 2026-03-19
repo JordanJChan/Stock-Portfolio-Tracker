@@ -257,6 +257,7 @@ public class StockPortfolioTrackerApp {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: Saves the portfolio into a file
     public void savePortfolio() {
         try {
@@ -269,6 +270,7 @@ public class StockPortfolioTrackerApp {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: Loads the portfolio from the file
     public void loadPortfolio() {
         try {

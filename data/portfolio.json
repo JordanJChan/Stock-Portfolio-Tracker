@@ -1,9 +1,25 @@
 {
-    "listOfCompanies": [{
-        "listOfStock": [],
-        "name": "Microsoft",
-        "totalMoneyInvested": 0
-    }],
-    "profit": 0,
-    "moneyInvested": 0
+    "listOfCompanies": [
+        {
+            "listOfStock": [
+                {
+                    "priceWhenBought": 400,
+                    "currentPrice": 450
+                },
+                {
+                    "priceWhenBought": 400,
+                    "currentPrice": 450
+                }
+            ],
+            "name": "Tesla",
+            "totalMoneyInvested": 1200
+        },
+        {
+            "listOfStock": [],
+            "name": "Nvidia",
+            "totalMoneyInvested": 0
+        }
+    ],
+    "profit": 150,
+    "moneyInvested": 1200
 }

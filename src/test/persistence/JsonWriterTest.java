@@ -8,11 +8,11 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 import java.io.IOException;
 
-import org.junit.Test;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+import org.junit.jupiter.api.Test;
 
 @ExcludeFromJacocoGeneratedReport
 public class JsonWriterTest extends JsonTest {
@@ -20,7 +20,7 @@ public class JsonWriterTest extends JsonTest {
     @Test
     public void testWriterInvalidFile() {
         try {
-            JsonWriter writer = new JsonWriter("./data/my\\0illegal:fileName.json");
+            JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
             writer.open();
             fail("IOException was expected");
         } catch (IOException e) {
