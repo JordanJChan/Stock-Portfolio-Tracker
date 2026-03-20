@@ -46,7 +46,22 @@ public class StockPortfolioTrackerUI extends JFrame {
         JLabel priceLabel = new JLabel("Price:");
         //companyNameLabel.setBounds(50, 50, 200, 30); 
 
-        
+        JLabel companyToRemoveLabel = new JLabel("Name of Company to Remove:");
+        JTextField companyToRemoveField = new JTextField(15);
+        JButton buttonToRemoveCompany = new JButton("Remove Company");
+
+        JPanel portfolioDataPanel = new JPanel();
+        portfolioDataPanel.setBackground(Color.lightGray);
+        portfolioDataPanel.setBounds(0, 100, WIDTH, HEIGHT);
+
+        JTextArea textArea = new JTextArea();
+        textArea.setLineWrap(true);              // wrap text to next line
+        textArea.setWrapStyleWord(true);         // wrap at word boundaries
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        textArea.setText("This is a very long text...\nMore lines...\nEven more...");
+        scrollPane.setBounds(0, 50, 700, 500);
+
 
 
         buttonToSubmitCompany.addActionListener(e -> {
@@ -57,6 +72,11 @@ public class StockPortfolioTrackerUI extends JFrame {
             System.out.println("You entered: " + companyName);
             System.out.println("You entered: " + numberOfStocks);
             System.out.println("You entered: " + price);
+        });
+
+        buttonToRemoveCompany.addActionListener(e -> {
+            String companyRemoving = companyToRemoveField.getText();
+            removeCompany(companyRemoving);
         });
 
         buttonToSaveData.addActionListener(e -> {
@@ -82,10 +102,16 @@ public class StockPortfolioTrackerUI extends JFrame {
         addCompanyPanel.add(priceLabel);
         addCompanyPanel.add(stockPriceField);
         addCompanyPanel.add(buttonToSubmitCompany);
+        addCompanyPanel.add(companyToRemoveLabel);
+        addCompanyPanel.add(companyToRemoveField);
+        addCompanyPanel.add(buttonToRemoveCompany);
         addCompanyPanel.add(buttonToSaveData); 
         addCompanyPanel.add(buttonToLoadData);
 
+        portfolioDataPanel.add(scrollPane);
+        
         add(addCompanyPanel);
+        add(portfolioDataPanel);
         setVisible(true);
 
 
@@ -101,6 +127,15 @@ public class StockPortfolioTrackerUI extends JFrame {
             }
         }
         System.out.println("yay");
+    }
+
+    public void removeCompany(String name) {
+        for (Company company : portfolio.getCompanies()) {
+            if (company.getName().equals(name)) {
+                portfolio.getCompanies().remove(company);
+                break;
+            }
+        }
     }
 
     public void saveData() {
