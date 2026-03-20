@@ -1,25 +1,21 @@
 {
     "listOfCompanies": [
         {
-            "listOfStock": [
-                {
-                    "priceWhenBought": 400,
-                    "currentPrice": 450
-                },
-                {
-                    "priceWhenBought": 400,
-                    "currentPrice": 450
-                }
-            ],
+            "listOfStock": [],
             "name": "Tesla",
-            "totalMoneyInvested": 1200
+            "totalMoneyInvested": 0
         },
         {
             "listOfStock": [],
-            "name": "Nvidia",
+            "name": "nvidia",
+            "totalMoneyInvested": 0
+        },
+        {
+            "listOfStock": [],
+            "name": "sdf",
             "totalMoneyInvested": 0
         }
     ],
-    "profit": 150,
-    "moneyInvested": 1200
+    "profit": 0,
+    "moneyInvested": 0
 }
