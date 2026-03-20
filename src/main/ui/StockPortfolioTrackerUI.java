@@ -34,18 +34,29 @@ public class StockPortfolioTrackerUI extends JFrame {
         addCompanyPanel.setBounds(0, 0, WIDTH, 100);
 
         JTextField companyNameInputField = new JTextField(15);
+        JTextField numberOfStocksField = new JTextField(5);
+        JTextField stockPriceField = new JTextField(5);
         JButton buttonToSubmitCompany = new JButton("Add Company");
 
         JButton buttonToSaveData = new JButton("Save Data");
-        JButton buttonToLoadData = new JButton("Load");
+        JButton buttonToLoadData = new JButton("Load Data");
 
         JLabel companyNameLabel = new JLabel("Company Name:");
+        JLabel numberOfStocksLabel = new JLabel("Number of Shares:");
+        JLabel priceLabel = new JLabel("Price:");
         //companyNameLabel.setBounds(50, 50, 200, 30); 
+
+        
+
 
         buttonToSubmitCompany.addActionListener(e -> {
             String companyName = companyNameInputField.getText();
-            addCompany(companyName);
+            int numberOfStocks = Integer.parseInt(numberOfStocksField.getText());
+            int price = Integer.parseInt(stockPriceField.getText());
+            addCompany(companyName, numberOfStocks, price);
             System.out.println("You entered: " + companyName);
+            System.out.println("You entered: " + numberOfStocks);
+            System.out.println("You entered: " + price);
         });
 
         buttonToSaveData.addActionListener(e -> {
@@ -57,11 +68,21 @@ public class StockPortfolioTrackerUI extends JFrame {
         });
 
 
+
+
+
+
+
+
+
         addCompanyPanel.add(companyNameLabel);
         addCompanyPanel.add(companyNameInputField);
+        addCompanyPanel.add(numberOfStocksLabel);
+        addCompanyPanel.add(numberOfStocksField);
+        addCompanyPanel.add(priceLabel);
+        addCompanyPanel.add(stockPriceField);
         addCompanyPanel.add(buttonToSubmitCompany);
-        addCompanyPanel.add(buttonToSubmitCompany);
-        addCompanyPanel.add(buttonToSaveData);
+        addCompanyPanel.add(buttonToSaveData); 
         addCompanyPanel.add(buttonToLoadData);
 
         add(addCompanyPanel);
@@ -70,8 +91,15 @@ public class StockPortfolioTrackerUI extends JFrame {
 
     }
 
-    public void addCompany(String name) {
+    public void addCompany(String name, int numberOfShares, int price) {
         portfolio.addCompany(new Company(name));
+        for (Company company : portfolio.getCompanies()) {
+            if (company.getName().equals(name)) {
+                for (int i = 0; i < numberOfShares; i++) {
+                    company.buyStock(new Stock(price));
+                }
+            }
+        }
         System.out.println("yay");
     }
 

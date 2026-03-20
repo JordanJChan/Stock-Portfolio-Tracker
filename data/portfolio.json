@@ -1,21 +1,5 @@
 {
-    "listOfCompanies": [
-        {
-            "listOfStock": [],
-            "name": "Tesla",
-            "totalMoneyInvested": 0
-        },
-        {
-            "listOfStock": [],
-            "name": "nvidia",
-            "totalMoneyInvested": 0
-        },
-        {
-            "listOfStock": [],
-            "name": "sdf",
-            "totalMoneyInvested": 0
-        }
-    ],
+    "listOfCompanies": [],
     "profit": 0,
     "moneyInvested": 0
 }
