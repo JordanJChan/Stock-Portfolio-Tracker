@@ -6,12 +6,18 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.swing.*;
+
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import model.*;
 import persistence.*;
 
+// Image source: https://en.meming.world/wiki/File:Stonks_meme_4.jpg/
+
+@ExcludeFromJacocoGeneratedReport
 public class StockPortfolioTrackerUI extends JFrame {
     private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
@@ -21,7 +27,6 @@ public class StockPortfolioTrackerUI extends JFrame {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
-    private static final String IMAGE_SOURCE = "/image/NotStonks.webp";
 
     public StockPortfolioTrackerUI() {
         portfolio = new Portfolio();
@@ -69,19 +74,17 @@ public class StockPortfolioTrackerUI extends JFrame {
         
 
         JScrollPane scrollPane = new JScrollPane(textArea);
-        textArea.setText("This is a very long text. ..More lines... Even more... sdfjs fskl fsjkld fskld fslkdf slkf kl kldsf kldsf ");
+        textArea.setText(displayPortfolio());
         scrollPane.setBounds(0, 50, 700, 500);
 
-
+        
         buttonToSubmitCompany.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String companyName = companyNameInputField.getText();
                 int numberOfStocks = Integer.parseInt(numberOfStocksField.getText());
                 int price = Integer.parseInt(stockPriceField.getText());
                 addCompany(companyName, numberOfStocks, price);
-                System.out.println("You entered: " + companyName);
-                System.out.println("You entered: " + numberOfStocks);
-                System.out.println("You entered: " + price);
+                textArea.setText(displayPortfolio());
             }
         });
 
@@ -90,18 +93,21 @@ public class StockPortfolioTrackerUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String companyRemoving = companyToRemoveField.getText();
                 removeCompany(companyRemoving);
+                textArea.setText(displayPortfolio());
             }
         });
 
         buttonToSaveData.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 saveData();
+                textArea.setText(displayPortfolio());
             }
         });
 
         buttonToLoadData.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 loadData();
+                textArea.setText(displayPortfolio());
             }
         });
 
@@ -111,7 +117,8 @@ public class StockPortfolioTrackerUI extends JFrame {
                 imageFrame.setSize(WIDTH, HEIGHT);
 
                 String sep = System.getProperty("file.separator");
-                ImageIcon visual = new ImageIcon(System.getProperty("user.dir") + sep + "image" + sep + "Stonks_meme_4.png");
+                // ImageIcon visual = new ImageIcon(System.getProperty("user.dir") + sep + "image" + sep + "Stonks_meme_4.png");
+                ImageIcon visual = new ImageIcon("image/Stonks_meme_4.png");
 
                 JLabel imageLabel = new JLabel();
                 imageLabel.setIcon(visual);
@@ -125,11 +132,6 @@ public class StockPortfolioTrackerUI extends JFrame {
 
 
         
-
-
-
-
-
 
         addCompanyPanel.add(companyNameLabel);
         addCompanyPanel.add(companyNameInputField);
@@ -173,6 +175,18 @@ public class StockPortfolioTrackerUI extends JFrame {
                 break;
             }
         }
+    }
+
+    public String displayPortfolio() {
+        String portfolioInfo = "Current Portfolio:";
+        for (Company company : portfolio.getCompanies()) {
+            portfolioInfo = portfolioInfo + "\n" + company.getName();
+            for (Stock stock : company.getStocks()) {
+                portfolioInfo = portfolioInfo + "\nA stock bought at $" + stock.getPriceWhenBought();
+            }
+        }
+
+        return portfolioInfo;
     }
 
     public void saveData() {
