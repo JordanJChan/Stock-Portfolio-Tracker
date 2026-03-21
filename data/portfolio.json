@@ -1,5 +1,12 @@
 {
-    "listOfCompanies": [],
+    "listOfCompanies": [{
+        "listOfStock": [{
+            "priceWhenBought": 2,
+            "currentPrice": 2
+        }],
+        "name": "f",
+        "totalMoneyInvested": 0
+    }],
     "profit": 0,
     "moneyInvested": 0
 }
