@@ -74,6 +74,7 @@ public class StockPortfolioTrackerUI extends JFrame {
 
     }
 
+    // EFFECTS: Creates the panels, buttons, text fields, and labels
     public void makeInterface() {
         addCompanyPanel = new JPanel();
         addCompanyPanel.setBackground(Color.green);
@@ -106,6 +107,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         scrollPane.setBounds(0, 50, 700, 500);
     }
 
+    // EFFECTS: adds objects into the panels
     public void addPanels() {
         addCompanyPanel.add(companyNameLabel);
         addCompanyPanel.add(companyNameInputField);
@@ -123,6 +125,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         portfolioDataPanel.add(scrollPane, java.awt.BorderLayout.WEST);
     }
 
+    // EFFECTS: Handles when the user presses the button to add a company
     public void handleButtonToAddCompany() {
         buttonToSubmitCompany.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -147,6 +150,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         }
     }
 
+    // EFFECTS: Adds a company when user presses button
     public void handleButtonToRemoveCompany() {
         buttonToRemoveCompany.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -167,6 +171,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         }
     }
 
+    // EFFECTS: Saves user data when they press the button
     public void handleButtonToSaveData() {
         buttonToSaveData.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -176,6 +181,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         });
     }
 
+    // EFFECTS: Loads user data when they press the button
     public void handleButtonToLoadData() {
         buttonToLoadData.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -198,6 +204,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         return portfolioInfo;
     }
 
+    // EFFECTS: Displays image to user
     public void handleButtonToDisplayImage() {
         buttonToDisplayImage.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -238,7 +245,7 @@ public class StockPortfolioTrackerUI extends JFrame {
 
 
 
-    //EFFECTS: starts the application
+    //EFFECTS: Starts the application
     public static void main(String[] args) {
         new StockPortfolioTrackerUI();
     }
