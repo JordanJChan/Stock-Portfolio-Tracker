@@ -21,59 +21,109 @@ import persistence.*;
 @ExcludeFromJacocoGeneratedReport
 public class StockPortfolioTrackerUI extends JFrame {
     private static final int WIDTH = 800;
-	private static final int HEIGHT = 600;
+    private static final int HEIGHT = 600;
     private Portfolio portfolio;
     private static final String JSON_STORE = "./data/portfolio.json";
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
+    private JPanel addCompanyPanel;
+    private JTextField companyNameInputField;
+    private JTextField numberOfStocksField;
+    private JTextField stockPriceField;
+    private JButton buttonToSubmitCompany;
+    private JButton buttonToSaveData;
+    private JButton buttonToLoadData;
+    private JLabel companyNameLabel;
+    private JLabel numberOfStocksLabel;
+    private JLabel priceLabel;
+    private JLabel companyToRemoveLabel;
+    private JTextField companyToRemoveField;
+    private JButton buttonToRemoveCompany;
+    private JButton buttonToDisplayImage;
+    private JPanel portfolioDataPanel;
+    private JTextArea textArea;
+    private JScrollPane scrollPane;
+
     // EFFECTS: Sets up the interface and displays it
     public StockPortfolioTrackerUI() {
-        initializeObjects();
-
+        portfolio = new Portfolio();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
 
         setTitle("Stock Portfolio Tracker");
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(null);
 
-        JPanel addCompanyPanel = new JPanel();
+        
+        makeInterface();
+        
+        handleButtonToAddCompany();
+        handleButtonToRemoveCompany();
+        handleButtonToSaveData();
+        handleButtonToLoadData();
+        handleButtonToDisplayImage();
+        
+        addPanels();
+
+        add(addCompanyPanel);
+        add(portfolioDataPanel);
+        setVisible(true);
+
+
+    }
+
+    public void makeInterface() {
+        addCompanyPanel = new JPanel();
         addCompanyPanel.setBackground(Color.green);
         addCompanyPanel.setBounds(0, 0, WIDTH, 100);
+        companyNameInputField = new JTextField(15);
+        numberOfStocksField = new JTextField(5);
+        stockPriceField = new JTextField(5);
+        buttonToSubmitCompany = new JButton("Add Company");
 
-        JTextField companyNameInputField = new JTextField(15);
-        JTextField numberOfStocksField = new JTextField(5);
-        JTextField stockPriceField = new JTextField(5);
-        JButton buttonToSubmitCompany = new JButton("Add Company");
+        buttonToSaveData = new JButton("Save Data");
+        buttonToLoadData = new JButton("Load Data");
 
-        JButton buttonToSaveData = new JButton("Save Data");
-        JButton buttonToLoadData = new JButton("Load Data");
+        companyNameLabel = new JLabel("Company Name:");
+        numberOfStocksLabel = new JLabel("Number of Shares:");
+        priceLabel = new JLabel("Price:");
 
-        JLabel companyNameLabel = new JLabel("Company Name:");
-        JLabel numberOfStocksLabel = new JLabel("Number of Shares:");
-        JLabel priceLabel = new JLabel("Price:");
+        companyToRemoveLabel = new JLabel("Name of Company to Remove:");
+        companyToRemoveField = new JTextField(15);
+        buttonToRemoveCompany = new JButton("Remove Company");
 
-        JLabel companyToRemoveLabel = new JLabel("Name of Company to Remove:");
-        JTextField companyToRemoveField = new JTextField(15);
-        JButton buttonToRemoveCompany = new JButton("Remove Company");
+        buttonToDisplayImage = new JButton("Display Image");
 
-        JButton buttonToDisplayImage = new JButton("Display Image");
-
-        JPanel portfolioDataPanel = new JPanel();
-        portfolioDataPanel.setBackground(Color.lightGray);
+        portfolioDataPanel = new JPanel();
         portfolioDataPanel.setBounds(0, 100, WIDTH, HEIGHT);
         portfolioDataPanel.setLayout(new BorderLayout());
-        
 
-        JTextArea textArea = new JTextArea(10, 80);
-        textArea.setLineWrap(true);   
-        
-
-        JScrollPane scrollPane = new JScrollPane(textArea);
+        textArea = new JTextArea(10, 80);
+        scrollPane = new JScrollPane(textArea);
         textArea.setText(displayPortfolio());
         scrollPane.setBounds(0, 50, 700, 500);
+    }
 
-        
+    public void addPanels() {
+        addCompanyPanel.add(companyNameLabel);
+        addCompanyPanel.add(companyNameInputField);
+        addCompanyPanel.add(numberOfStocksLabel);
+        addCompanyPanel.add(numberOfStocksField);
+        addCompanyPanel.add(priceLabel);
+        addCompanyPanel.add(stockPriceField);
+        addCompanyPanel.add(buttonToSubmitCompany);
+        addCompanyPanel.add(companyToRemoveLabel);
+        addCompanyPanel.add(companyToRemoveField);
+        addCompanyPanel.add(buttonToRemoveCompany);
+        addCompanyPanel.add(buttonToSaveData); 
+        addCompanyPanel.add(buttonToLoadData);
+        addCompanyPanel.add(buttonToDisplayImage);
+        portfolioDataPanel.add(scrollPane, java.awt.BorderLayout.WEST);
+    }
+
+    public void handleButtonToAddCompany() {
         buttonToSubmitCompany.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String companyName = companyNameInputField.getText();
@@ -83,8 +133,21 @@ public class StockPortfolioTrackerUI extends JFrame {
                 textArea.setText(displayPortfolio());
             }
         });
+    }
 
+    // EFFECTS: Adds a company, and the shares into the portfolio
+    public void addCompany(String name, int numberOfShares, int price) {
+        portfolio.addCompany(new Company(name));
+        for (Company company : portfolio.getCompanies()) {
+            if (company.getName().equals(name)) {
+                for (int i = 0; i < numberOfShares; i++) {
+                    company.buyStock(new Stock(price));
+                }
+            }
+        }
+    }
 
+    public void handleButtonToRemoveCompany() {
         buttonToRemoveCompany.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String companyRemoving = companyToRemoveField.getText();
@@ -92,21 +155,50 @@ public class StockPortfolioTrackerUI extends JFrame {
                 textArea.setText(displayPortfolio());
             }
         });
+    }
 
+    // EFFECTS: Removes the company using the name
+    public void removeCompany(String name) {
+        for (Company company : portfolio.getCompanies()) {
+            if (company.getName().equals(name)) {
+                portfolio.getCompanies().remove(company);
+                break;
+            }
+        }
+    }
+
+    public void handleButtonToSaveData() {
         buttonToSaveData.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 saveData();
                 textArea.setText(displayPortfolio());
             }
         });
+    }
 
+    public void handleButtonToLoadData() {
         buttonToLoadData.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 loadData();
                 textArea.setText(displayPortfolio());
             }
         });
+    }
 
+    // EFFECTS: returns the string of all the items in the portfolio
+    public String displayPortfolio() {
+        String portfolioInfo = "Current Portfolio:";
+        for (Company company : portfolio.getCompanies()) {
+            portfolioInfo = portfolioInfo + "\n" + company.getName();
+            for (Stock stock : company.getStocks()) {
+                portfolioInfo = portfolioInfo + "\nA stock bought at $" + stock.getPriceWhenBought();
+            }
+        }
+
+        return portfolioInfo;
+    }
+
+    public void handleButtonToDisplayImage() {
         buttonToDisplayImage.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JFrame imageFrame = new JFrame("Amazing Visual");
@@ -122,72 +214,6 @@ public class StockPortfolioTrackerUI extends JFrame {
                 imageFrame.setVisible(true);
             }
         });
-
-
-        
-
-        addCompanyPanel.add(companyNameLabel);
-        addCompanyPanel.add(companyNameInputField);
-        addCompanyPanel.add(numberOfStocksLabel);
-        addCompanyPanel.add(numberOfStocksField);
-        addCompanyPanel.add(priceLabel);
-        addCompanyPanel.add(stockPriceField);
-        addCompanyPanel.add(buttonToSubmitCompany);
-        addCompanyPanel.add(companyToRemoveLabel);
-        addCompanyPanel.add(companyToRemoveField);
-        addCompanyPanel.add(buttonToRemoveCompany);
-        addCompanyPanel.add(buttonToSaveData); 
-        addCompanyPanel.add(buttonToLoadData);
-        addCompanyPanel.add(buttonToDisplayImage);
-
-        portfolioDataPanel.add(scrollPane, java.awt.BorderLayout.WEST);
-
-        add(addCompanyPanel);
-        add(portfolioDataPanel);
-        setVisible(true);
-
-
-    }
-
-    public void initializeObjects() {
-        portfolio = new Portfolio();
-        jsonWriter = new JsonWriter(JSON_STORE);
-        jsonReader = new JsonReader(JSON_STORE);
-    }
-
-    // EFFECTS: Adds a company, and the shares into the portfolio
-    public void addCompany(String name, int numberOfShares, int price) {
-        portfolio.addCompany(new Company(name));
-        for (Company company : portfolio.getCompanies()) {
-            if (company.getName().equals(name)) {
-                for (int i = 0; i < numberOfShares; i++) {
-                    company.buyStock(new Stock(price));
-                }
-            }
-        }
-    }
-
-    // EFFECTS: Removes the company using the name
-    public void removeCompany(String name) {
-        for (Company company : portfolio.getCompanies()) {
-            if (company.getName().equals(name)) {
-                portfolio.getCompanies().remove(company);
-                break;
-            }
-        }
-    }
-
-    // EFFECTS: returns the string of all the items in the portfolio
-    public String displayPortfolio() {
-        String portfolioInfo = "Current Portfolio:";
-        for (Company company : portfolio.getCompanies()) {
-            portfolioInfo = portfolioInfo + "\n" + company.getName();
-            for (Stock stock : company.getStocks()) {
-                portfolioInfo = portfolioInfo + "\nA stock bought at $" + stock.getPriceWhenBought();
-            }
-        }
-
-        return portfolioInfo;
     }
 
     // EFFECTS: Saves data from the portfolio
@@ -213,8 +239,8 @@ public class StockPortfolioTrackerUI extends JFrame {
 
 
     //EFFECTS: starts the application
-	public static void main(String[] args) {
-		new StockPortfolioTrackerUI();
-	}
+    public static void main(String[] args) {
+        new StockPortfolioTrackerUI();
+    }
 
 }
