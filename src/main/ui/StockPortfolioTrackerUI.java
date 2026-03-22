@@ -27,11 +27,9 @@ public class StockPortfolioTrackerUI extends JFrame {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
-
+    // EFFECTS: Sets up the interface and displays it
     public StockPortfolioTrackerUI() {
-        portfolio = new Portfolio();
-        jsonWriter = new JsonWriter(JSON_STORE);
-        jsonReader = new JsonReader(JSON_STORE);
+        initializeObjects();
 
 
         setTitle("Stock Portfolio Tracker");
@@ -149,6 +147,12 @@ public class StockPortfolioTrackerUI extends JFrame {
         setVisible(true);
 
 
+    }
+
+    public void initializeObjects() {
+        portfolio = new Portfolio();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     // EFFECTS: Adds a company, and the shares into the portfolio
