@@ -17,12 +17,12 @@ import persistence.*;
 
 // Image source: https://en.meming.world/wiki/File:Stonks_meme_4.jpg/
 
+// Represents the application's main window frame
 @ExcludeFromJacocoGeneratedReport
 public class StockPortfolioTrackerUI extends JFrame {
     private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
     private Portfolio portfolio;
-
     private static final String JSON_STORE = "./data/portfolio.json";
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -54,7 +54,6 @@ public class StockPortfolioTrackerUI extends JFrame {
         JLabel companyNameLabel = new JLabel("Company Name:");
         JLabel numberOfStocksLabel = new JLabel("Number of Shares:");
         JLabel priceLabel = new JLabel("Price:");
-        //companyNameLabel.setBounds(50, 50, 200, 30); 
 
         JLabel companyToRemoveLabel = new JLabel("Name of Company to Remove:");
         JTextField companyToRemoveField = new JTextField(15);
@@ -69,8 +68,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         
 
         JTextArea textArea = new JTextArea(10, 80);
-        textArea.setLineWrap(true);              // wrap text to next line
-        //textArea.setWrapStyleWord(true);         // wrap at word boundaries
+        textArea.setLineWrap(true);   
         
 
         JScrollPane scrollPane = new JScrollPane(textArea);
@@ -115,9 +113,6 @@ public class StockPortfolioTrackerUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame imageFrame = new JFrame("Amazing Visual");
                 imageFrame.setSize(WIDTH, HEIGHT);
-
-                String sep = System.getProperty("file.separator");
-                // ImageIcon visual = new ImageIcon(System.getProperty("user.dir") + sep + "image" + sep + "Stonks_meme_4.png");
                 ImageIcon visual = new ImageIcon("image/Stonks_meme_4.png");
 
                 JLabel imageLabel = new JLabel();
@@ -156,6 +151,7 @@ public class StockPortfolioTrackerUI extends JFrame {
 
     }
 
+    // EFFECTS: Adds a company, and the shares into the portfolio
     public void addCompany(String name, int numberOfShares, int price) {
         portfolio.addCompany(new Company(name));
         for (Company company : portfolio.getCompanies()) {
@@ -165,9 +161,9 @@ public class StockPortfolioTrackerUI extends JFrame {
                 }
             }
         }
-        System.out.println("yay");
     }
 
+    // EFFECTS: Removes the company using the name
     public void removeCompany(String name) {
         for (Company company : portfolio.getCompanies()) {
             if (company.getName().equals(name)) {
@@ -177,6 +173,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         }
     }
 
+    // EFFECTS: returns the string of all the items in the portfolio
     public String displayPortfolio() {
         String portfolioInfo = "Current Portfolio:";
         for (Company company : portfolio.getCompanies()) {
@@ -189,29 +186,29 @@ public class StockPortfolioTrackerUI extends JFrame {
         return portfolioInfo;
     }
 
+    // EFFECTS: Saves data from the portfolio
     public void saveData() {
         try {
             jsonWriter.open();
             jsonWriter.write(portfolio);
             jsonWriter.close();
-            System.out.println("Successfully saved portfolio.");
         } catch (FileNotFoundException e) {
-            System.out.println("There was a problem saving the portfolio");
+            // pass
         }
     }
 
+    // EFFECTS: Loads data from the portfolio
     public void loadData() {
         try {
             portfolio = jsonReader.read();
-            System.out.println("Successfully loaded the portfolio.");
         } catch (IOException e) {
-            System.out.println("There was a problem loading the portfolio.");
+            // pass
         }
     }
 
 
 
-    // starts the application
+    //EFFECTS: starts the application
 	public static void main(String[] args) {
 		new StockPortfolioTrackerUI();
 	}
