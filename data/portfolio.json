@@ -1,16 +1,10 @@
 {
     "listOfCompanies": [{
-        "listOfStock": [
-            {
-                "priceWhenBought": 1,
-                "currentPrice": 1
-            },
-            {
-                "priceWhenBought": 1,
-                "currentPrice": 1
-            }
-        ],
-        "name": "f",
+        "listOfStock": [{
+            "priceWhenBought": 300,
+            "currentPrice": 300
+        }],
+        "name": "Meta",
         "totalMoneyInvested": 0
     }],
     "profit": 0,
