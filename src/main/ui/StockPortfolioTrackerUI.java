@@ -245,7 +245,7 @@ public class StockPortfolioTrackerUI extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 for (Event event : EventLog.getInstance()) {
-                    System.out.println(event.getDescription());
+                    System.out.println(event);
                 }
             }
         });

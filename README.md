@@ -24,8 +24,17 @@ My project will be a simple **Stock Portfolio Tracker** that allows the user to 
 
 
 
-## Phase 4: Task 2
-Tesla added to portfolio with some shares.
-Nvidia added to portfolio with some shares.
-More shares were added to Tesla
-Nvidia was removed from portfolio.
+# Phase 4: Task 2
+* Sun Mar 29 15:20:56 PDT 2026
+* Tesla added to portfolio with some shares.
+* Sun Mar 29 15:21:04 PDT 2026
+* Nvidia added to portfolio with some shares.
+* Sun Mar 29 15:21:15 PDT 2026
+* More shares were added to Tesla
+* Sun Mar 29 15:21:21 PDT 2026
+* Nvidia was removed from portfolio.
+
+# Phase 4: Task 3
+One change I would make to my design is that I would remove the `Company` class to reduce coupling and simplify the design. This is because I can add more fields to the `Stock` class to include the company's information instead of having a separate class for it. It would reduce the hierarchy from `Portfolio` containing `Company` containing `Stock` to just `Portfolio` containing `Stock` which makes the design less complicated. I would need less for loops to display the data because I do not have to loop over each company when looping through the data in the `Portfolio` class. I only need to loop over the stocks in this new design. Thus, I would get rid of the `Company` class and add more fields to the `Stock` class to reduce coupling and simplify the class hierarchy. 
+
+Another change I would make to my design is to have more GUI classes. This would increase cohesion where I can have one class that controls the main functions of the GUI and another that creates the buttons and text boxes. It makes it so the class is responsible for one task which makes it easier to maintain and understand how it works. 
