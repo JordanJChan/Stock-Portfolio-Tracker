@@ -22,3 +22,10 @@ My project will be a simple **Stock Portfolio Tracker** that allows the user to 
 - You can save the state of my application by clicking the button that says "Save Data"
 - You can reload the state of my application by clicking the button that says "Load Data"
 
+
+
+## Phase 4: Task 2
+Tesla added to portfolio with some shares.
+Nvidia added to portfolio with some shares.
+More shares were added to Tesla
+Nvidia was removed from portfolio.

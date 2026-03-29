@@ -128,6 +128,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         portfolioDataPanel.add(scrollPane, java.awt.BorderLayout.WEST);
     }
 
+    // MODIFIES: this
     // EFFECTS: Handles when the user presses the button to add a company
     public void handleButtonToAddCompany() {
         buttonToSubmitCompany.addActionListener(new ActionListener() {
@@ -141,6 +142,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         });
     }
 
+    // MODIFIES: this
     // EFFECTS: Adds a company, and the shares into the portfolio
     public void addCompany(String name, int numberOfShares, int price) {
         portfolio.addCompany(new Company(name));
@@ -153,6 +155,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: Adds a company when user presses button
     public void handleButtonToRemoveCompany() {
         buttonToRemoveCompany.addActionListener(new ActionListener() {
