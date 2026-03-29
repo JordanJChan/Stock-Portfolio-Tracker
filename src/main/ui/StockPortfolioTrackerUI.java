@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.swing.*;
-
+import java.awt.event.*;
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 import java.awt.event.ActionListener;
@@ -65,6 +65,9 @@ public class StockPortfolioTrackerUI extends JFrame {
         handleButtonToLoadData();
         handleButtonToDisplayImage();
         
+
+        handleUserClosingWindow();
+
         addPanels();
 
         add(addCompanyPanel);
@@ -155,20 +158,10 @@ public class StockPortfolioTrackerUI extends JFrame {
         buttonToRemoveCompany.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String companyRemoving = companyToRemoveField.getText();
-                removeCompany(companyRemoving);
+                portfolio.removeCompany(companyRemoving);
                 textArea.setText(displayPortfolio());
             }
         });
-    }
-
-    // EFFECTS: Removes the company using the name
-    public void removeCompany(String name) {
-        for (Company company : portfolio.getCompanies()) {
-            if (company.getName().equals(name)) {
-                portfolio.getCompanies().remove(company);
-                break;
-            }
-        }
     }
 
     // EFFECTS: Saves user data when they press the button
@@ -241,6 +234,18 @@ public class StockPortfolioTrackerUI extends JFrame {
         } catch (IOException e) {
             // pass
         }
+    }
+
+    // EFFECTS: Prints Events from EventLog after user closes the window
+    public void handleUserClosingWindow() {
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                for (Event event : EventLog.getInstance()) {
+                    System.out.println(event.getDescription());
+                }
+            }
+        });
     }
 
 

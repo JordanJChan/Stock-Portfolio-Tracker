@@ -1,9 +1,15 @@
 {
     "listOfCompanies": [{
-        "listOfStock": [{
-            "priceWhenBought": 300,
-            "currentPrice": 300
-        }],
+        "listOfStock": [
+            {
+                "priceWhenBought": 500,
+                "currentPrice": 500
+            },
+            {
+                "priceWhenBought": 500,
+                "currentPrice": 500
+            }
+        ],
         "name": "Meta",
         "totalMoneyInvested": 0
     }],

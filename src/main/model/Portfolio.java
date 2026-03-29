@@ -35,6 +35,9 @@ public class Portfolio implements Writable {
 
         if (!inside) {
             listOfCompanies.add(company);
+            EventLog.getInstance().logEvent(new Event(company.getName() + " added to portfolio with some shares."));
+        } else {
+            EventLog.getInstance().logEvent(new Event("More shares were added to " + company.getName()));
         }
 
         return (!inside);
@@ -69,6 +72,18 @@ public class Portfolio implements Writable {
         this.profit = totalProfit;
 
         return this.profit; 
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Removes the company from the portfolio
+    public void removeCompany(String name) {
+        for (Company company : listOfCompanies) {
+            if (company.getName().equals(name)) {
+                listOfCompanies.remove(company);
+                EventLog.getInstance().logEvent(new Event(name + " was removed from portfolio."));
+                break;
+            }
+        }
     }
 
     // EFFECTS: Converts the portfolio to json
