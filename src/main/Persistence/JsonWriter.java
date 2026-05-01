@@ -1,4 +1,4 @@
-package persistence;
+package Persistence;
 
 import model.Portfolio;
 import org.json.JSONObject;

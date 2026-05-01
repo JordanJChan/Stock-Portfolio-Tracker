@@ -1,4 +1,4 @@
-package persistence;
+package Persistence;
 
 import model.Company;
 import model.Portfolio;

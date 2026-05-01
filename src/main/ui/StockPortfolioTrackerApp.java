@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.*;
-import persistence.*;
+import Persistence.*;
 
 // Represents the stock portfolio tracker app
 @ExcludeFromJacocoGeneratedReport
