@@ -1,4 +1,4 @@
-package Persistence;
+package persistence;
 
 import model.Company;
 import model.Portfolio;
@@ -12,6 +12,8 @@ import java.util.stream.Stream;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+
 
 // Referenced from the JsonSerialization Demo
 // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
