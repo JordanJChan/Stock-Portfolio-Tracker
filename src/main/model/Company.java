@@ -87,6 +87,19 @@ public class Company implements Writable {
         }
     }
 
+    public void updatePriceToCurrent() {
+        try {
+            int newPrice = StockPriceGetter.getInstance().getPrice(this.name);
+            for (Stock stock : listOfStock) {
+                stock.setCurrentPrice(newPrice);
+            }   
+        } catch (Exception e) {
+            System.out.println("Something went wrong getting the price");
+        }
+
+        
+    }
+
     // EFFECTS: Converts the company to json object
     @Override
     public JSONObject toJson() {
