@@ -38,7 +38,7 @@ public class StockPriceGetter {
         HttpResponse<String> response =
                 client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println(response.body());
+        //System.out.println(response.body());
         String json = response.body();
 
         JSONObject obj = new JSONObject(json);
@@ -46,10 +46,11 @@ public class StockPriceGetter {
         JSONObject quote = obj.getJSONObject("Global Quote");
 
         //String price = quote.getString("05. price");
-        int price = quote.getInt("05. price");
-
-        System.out.println(symbol + " price: $" + price);
-        return price;
+        String priceString = quote.getString("05. price");
+        double price = Double.parseDouble(priceString);
+        //System.out.println(price);
+        int priceInt = (int) price;
+        return priceInt;
     }
 
 }

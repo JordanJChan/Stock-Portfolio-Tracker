@@ -52,6 +52,8 @@ public class StockPortfolioTrackerApp {
                 loadPortfolio();
             } else if (userNumberInput == 10) { // Quit
                 break;
+            } else if (userNumberInput == 11) {
+                updateStockPriceToCurrent();
             } else {
                 System.out.println("Please enter a number from 1-8");
             }
@@ -89,6 +91,7 @@ public class StockPortfolioTrackerApp {
         System.out.println("\t8. Save portfolio");
         System.out.println("\t9. Load portfolio");
         System.out.println("\t10. Quit");
+        System.out.println("\t11. Update a company's stock price to current");
         System.out.println("\n");
     }
 
@@ -253,6 +256,30 @@ public class StockPortfolioTrackerApp {
                 System.out.println("You have no shares in this company.");
             } else {
                 displayShares(currentCompany);
+            }
+        }
+    }
+
+    public void updateStockPriceToCurrent() {
+        if (userPortfolio.getCompanies().size() == 0) {
+            System.out.println("You have not added any companies. Please add a company first.");
+        } else {
+            displayCompanies();
+            System.out.print("Enter the company number you want to update the stock price of: ");
+            userNumberInput = input.nextInt();
+            input.nextLine();
+
+            Company currentCompany = userPortfolio.getCompanies().get(userNumberInput - 1);
+            
+            if (currentCompany.getNumberOfStocks() == 0) {
+                System.out.println("You have no shares in this company.");
+            } else {
+                //System.out.print("What is the new price? ");
+                
+                currentCompany.updatePriceToCurrent();
+                //input.nextLine();
+
+                
             }
         }
     }

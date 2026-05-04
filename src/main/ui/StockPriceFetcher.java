@@ -35,8 +35,10 @@ public class StockPriceFetcher {
 
         JSONObject quote = obj.getJSONObject("Global Quote");
 
-        String price = quote.getString("05. price");
-
-        System.out.println(symbol + " price: $" + price);
+        String priceString = quote.getString("05. price");
+        double price = Double.parseDouble(priceString);
+        System.out.println(price);
+        int priceInt = (int) price;
+        System.out.println(symbol + " price: $" + priceInt);
     }
 }
