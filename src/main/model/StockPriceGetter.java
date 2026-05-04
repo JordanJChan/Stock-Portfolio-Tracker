@@ -38,7 +38,7 @@ public class StockPriceGetter {
         HttpResponse<String> response =
                 client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println(response.body());
+        //System.out.println(response.body());
         String json = response.body();
 
         JSONObject obj = new JSONObject(json);
@@ -55,7 +55,7 @@ public class StockPriceGetter {
         double price = Double.parseDouble(priceString);
         //System.out.println(price);
         int priceInt = (int) price;
-        System.out.println(priceInt);
+        //System.out.println(priceInt);
         return priceInt;
     }
 
