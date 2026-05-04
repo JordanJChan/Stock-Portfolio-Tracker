@@ -95,6 +95,8 @@ public class Company implements Writable {
             }   
         } catch (Exception e) {
             System.out.println("Something went wrong getting the price");
+            e.printStackTrace();
+            
         }
 
         

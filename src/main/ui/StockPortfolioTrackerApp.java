@@ -264,22 +264,25 @@ public class StockPortfolioTrackerApp {
         if (userPortfolio.getCompanies().size() == 0) {
             System.out.println("You have not added any companies. Please add a company first.");
         } else {
-            displayCompanies();
-            System.out.print("Enter the company number you want to update the stock price of: ");
-            userNumberInput = input.nextInt();
-            input.nextLine();
+            // displayCompanies();
+            // System.out.print("Enter the company number you want to update the stock price of: ");
+            // userNumberInput = input.nextInt();
+            // input.nextLine();
 
-            Company currentCompany = userPortfolio.getCompanies().get(userNumberInput - 1);
+            // Company currentCompany = userPortfolio.getCompanies().get(userNumberInput - 1);
             
-            if (currentCompany.getNumberOfStocks() == 0) {
-                System.out.println("You have no shares in this company.");
-            } else {
-                //System.out.print("What is the new price? ");
+            // if (currentCompany.getNumberOfStocks() == 0) {
+            //     System.out.println("You have no shares in this company.");
+            // } else {
+            //     //System.out.print("What is the new price? ");
                 
-                currentCompany.updatePriceToCurrent();
-                //input.nextLine();
-
+            //     currentCompany.updatePriceToCurrent();
+            //     //input.nextLine();
                 
+            // }
+            for (Company company : userPortfolio.getCompanies()) {
+                company.updatePriceToCurrent();
+                System.out.println(company.getName());
             }
         }
     }

@@ -30,7 +30,7 @@ public class StockPriceGetter {
             + "&apikey=" + apiKey;
 
         HttpClient client = HttpClient.newHttpClient();
-
+        Thread.sleep(1000);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .build();
@@ -38,10 +38,15 @@ public class StockPriceGetter {
         HttpResponse<String> response =
                 client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        //System.out.println(response.body());
+        System.out.println(response.body());
         String json = response.body();
 
         JSONObject obj = new JSONObject(json);
+
+        if (obj.has("Information")) {
+            System.out.println("what the hell");
+            Thread.sleep(1000);
+        }
 
         JSONObject quote = obj.getJSONObject("Global Quote");
 
@@ -50,6 +55,7 @@ public class StockPriceGetter {
         double price = Double.parseDouble(priceString);
         //System.out.println(price);
         int priceInt = (int) price;
+        System.out.println(priceInt);
         return priceInt;
     }
 
