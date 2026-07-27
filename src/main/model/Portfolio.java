@@ -110,5 +110,19 @@ public class Portfolio implements Writable {
         return jsonArray; 
     }
 
+    // EFFECTS: returns a readable summary of the portfolio
+    public String getSummaryText() {
+        int numberOfCompanies = listOfCompanies.size();
+        int totalShares = 0;
+        for (Company company : listOfCompanies) {
+            totalShares += company.getNumberOfStocks();
+        }
+
+        return "Portfolio Summary\n"
+                + "Companies: " + numberOfCompanies + "\n"
+                + "Total Shares: " + totalShares + "\n"
+                + "Invested: $" + getMoneyInvested() + "\n"
+                + "Profit: $" + getProfit();
+    }
 
 }

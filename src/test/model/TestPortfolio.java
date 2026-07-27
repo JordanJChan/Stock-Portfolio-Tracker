@@ -57,4 +57,19 @@ public class TestPortfolio {
         assertEquals(50, portfolio.getProfit());
     }
 
+    @Test
+    void testGetSummaryText() {
+        company1.buyStock(stock1);
+        stock1.setCurrentPrice(150);
+        portfolio.addCompany(company1);
+
+        String summary = portfolio.getSummaryText();
+
+        assertTrue(summary.contains("Portfolio Summary"));
+        assertTrue(summary.contains("Companies: 1"));
+        assertTrue(summary.contains("Total Shares: 1"));
+        assertTrue(summary.contains("Invested: $100"));
+        assertTrue(summary.contains("Profit: $50"));
+    }
+
 }

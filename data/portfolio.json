@@ -1,18 +1,196 @@
 {
-    "listOfCompanies": [{
-        "listOfStock": [
-            {
-                "priceWhenBought": 500,
-                "currentPrice": 500
-            },
-            {
-                "priceWhenBought": 500,
-                "currentPrice": 500
-            }
-        ],
-        "name": "Meta",
-        "totalMoneyInvested": 0
-    }],
+    "listOfCompanies": [
+        {
+            "listOfStock": [
+                {
+                    "priceWhenBought": 300,
+                    "currentPrice": 300
+                },
+                {
+                    "priceWhenBought": 300,
+                    "currentPrice": 300
+                },
+                {
+                    "priceWhenBought": 300,
+                    "currentPrice": 300
+                },
+                {
+                    "priceWhenBought": 300,
+                    "currentPrice": 300
+                }
+            ],
+            "name": "TSLA",
+            "totalMoneyInvested": 1200
+        },
+        {
+            "listOfStock": [
+                {
+                    "priceWhenBought": 130,
+                    "currentPrice": 130
+                },
+                {
+                    "priceWhenBought": 130,
+                    "currentPrice": 130
+                },
+                {
+                    "priceWhenBought": 130,
+                    "currentPrice": 130
+                },
+                {
+                    "priceWhenBought": 130,
+                    "currentPrice": 130
+                },
+                {
+                    "priceWhenBought": 130,
+                    "currentPrice": 130
+                },
+                {
+                    "priceWhenBought": 130,
+                    "currentPrice": 130
+                },
+                {
+                    "priceWhenBought": 130,
+                    "currentPrice": 130
+                },
+                {
+                    "priceWhenBought": 130,
+                    "currentPrice": 130
+                },
+                {
+                    "priceWhenBought": 130,
+                    "currentPrice": 130
+                }
+            ],
+            "name": "NVDA",
+            "totalMoneyInvested": 1170
+        },
+        {
+            "listOfStock": [
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                },
+                {
+                    "priceWhenBought": 10,
+                    "currentPrice": 10
+                }
+            ],
+            "name": "AMZN",
+            "totalMoneyInvested": 300
+        }
+    ],
     "profit": 0,
-    "moneyInvested": 0
+    "moneyInvested": 2670
 }
