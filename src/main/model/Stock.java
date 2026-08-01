@@ -15,6 +15,11 @@ public class Stock implements Writable {
         currentPrice = price;
         priceWhenBought = price;
     }
+
+    public Stock(int price, int current) {
+        currentPrice = current;
+        priceWhenBought = price;
+    }
     
     
     public int getCurrentPrice() {

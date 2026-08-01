@@ -258,8 +258,9 @@ public class StockPortfolioTrackerUI extends JFrame {
         portfolio.addCompany(companyToAdd);
         for (Company company : portfolio.getCompanies()) {
             if (company.getName().equals(name)) {
+                int currentRealPrice = company.getRealCurrentPrice();
                 for (int i = 0; i < numberOfShares; i++) {
-                    company.buyStock(new Stock(price));
+                    company.buyStock(new Stock(price, currentRealPrice));
                 }
             }
         }
@@ -343,7 +344,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         portfolioInfo.append(portfolio.getSummaryText()).append("\n\n");
 
         if (portfolio.getCompanies().isEmpty()) {
-            portfolioInfo.append("No companies added yet. Start by adding one above.");
+            portfolioInfo.append("No companies added yet. Start by adding one above or press 'Load Data' if you have saved data.");
             return portfolioInfo.toString();
         }
 

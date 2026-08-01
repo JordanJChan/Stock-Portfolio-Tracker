@@ -102,6 +102,17 @@ public class Company implements Writable {
         
     }
 
+    public int getRealCurrentPrice() {
+        try {
+            int newPrice = StockPriceGetter.getInstance().getPrice(this.name);
+            return newPrice;
+        } catch (Exception e) {
+            System.out.println("Something went wrong getting the price");
+            //e.printStackTrace();
+            return 0;
+        }
+    }
+
     // EFFECTS: Converts the company to json object
     @Override
     public JSONObject toJson() {
