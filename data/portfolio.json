@@ -17,10 +17,26 @@
                 {
                     "priceWhenBought": 300,
                     "currentPrice": 309
+                },
+                {
+                    "priceWhenBought": 200,
+                    "currentPrice": 311
+                },
+                {
+                    "priceWhenBought": 200,
+                    "currentPrice": 311
+                },
+                {
+                    "priceWhenBought": 200,
+                    "currentPrice": 311
+                },
+                {
+                    "priceWhenBought": 200,
+                    "currentPrice": 311
                 }
             ],
             "name": "TSLA",
-            "totalMoneyInvested": 1200
+            "totalMoneyInvested": 2000
         },
         {
             "listOfStock": [
@@ -191,6 +207,6 @@
             "totalMoneyInvested": 300
         }
     ],
-    "profit": 7260,
-    "moneyInvested": 2670
+    "profit": 7704,
+    "moneyInvested": 3470
 }

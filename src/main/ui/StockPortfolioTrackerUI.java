@@ -80,7 +80,7 @@ public class StockPortfolioTrackerUI extends JFrame {
         setSize(WIDTH, HEIGHT);
         setMinimumSize(new Dimension(WIDTH, HEIGHT));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        getContentPane().setBackground(new Color(245, 248, 250));
+        getContentPane().setBackground(new Color(244, 247, 250));
         setLayout(new BorderLayout(12, 12));
 
         makeInterface();
@@ -102,26 +102,29 @@ public class StockPortfolioTrackerUI extends JFrame {
     // EFFECTS: Creates the panels, buttons, text fields, and labels
     public void makeInterface() {
         summaryPanel = new JPanel();
-        summaryPanel.setBackground(new Color(255, 255, 255));
+        summaryPanel.setBackground(new Color(250, 252, 255));
         summaryPanel.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(new Color(220, 224, 232)),
+                BorderFactory.createLineBorder(new Color(210, 221, 236)),
                 BorderFactory.createEmptyBorder(12, 12, 12, 12)));
         summaryPanel.setLayout(new BoxLayout(summaryPanel, BoxLayout.Y_AXIS));
+        summaryPanel.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 
         summaryLabel = new JLabel("Portfolio Summary");
         summaryLabel.setFont(new Font("Segoe UI", Font.BOLD, 16));
-        summaryLabel.setForeground(new Color(24, 73, 128));
+        summaryLabel.setForeground(new Color(31, 81, 142));
+        summaryLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 
         statusLabel = new JLabel("Add a company to start tracking your investments.");
         statusLabel.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        statusLabel.setForeground(new Color(70, 90, 110));
+        statusLabel.setForeground(new Color(86, 101, 122));
+        statusLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 
         formPanel = new JPanel(new GridBagLayout());
         formPanel.setBackground(new Color(248, 250, 252));
         formPanel.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(200, 209, 223)),
+                BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(188, 204, 223)),
                         "Quick Actions", TitledBorder.LEFT, TitledBorder.TOP,
-                        new Font("Segoe UI", Font.BOLD, 12), new Color(60, 90, 120)),
+                        new Font("Segoe UI", Font.BOLD, 12), new Color(61, 92, 124)),
                 BorderFactory.createEmptyBorder(8, 8, 8, 8)));
 
         companyNameInputField = new JTextField(18);
@@ -139,12 +142,12 @@ public class StockPortfolioTrackerUI extends JFrame {
         buttonToClearForm = new JButton("Clear");
 
         portfolioDataPanel = new JPanel(new BorderLayout(8, 8));
-        portfolioDataPanel.setBackground(new Color(245, 248, 250));
+        portfolioDataPanel.setBackground(new Color(244, 247, 250));
         portfolioDataPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
         contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
-        contentPanel.setBackground(new Color(245, 248, 250));
+        contentPanel.setBackground(new Color(244, 247, 250));
         contentPanel.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 
         textArea = new JTextArea();
