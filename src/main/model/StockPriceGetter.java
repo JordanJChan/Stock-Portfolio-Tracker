@@ -7,6 +7,7 @@ import java.net.http.HttpResponse;
 
 import org.json.JSONObject;
 
+// Class for getting the real time stock price of a company. Uses the singleton design pattern to ensure that only one instance of the class is created.
 public class StockPriceGetter {
     private static StockPriceGetter getter;
 
@@ -38,24 +39,23 @@ public class StockPriceGetter {
         HttpResponse<String> response =
                 client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        //System.out.println(response.body());
+        
         String json = response.body();
 
         JSONObject obj = new JSONObject(json);
 
         if (obj.has("Information")) {
-            System.out.println("what the hell");
             Thread.sleep(1000);
         }
 
         JSONObject quote = obj.getJSONObject("Global Quote");
 
-        //String price = quote.getString("05. price");
+        
         String priceString = quote.getString("05. price");
         double price = Double.parseDouble(priceString);
-        //System.out.println(price);
+        
         int priceInt = (int) price;
-        //System.out.println(priceInt);
+        
         return priceInt;
     }
 

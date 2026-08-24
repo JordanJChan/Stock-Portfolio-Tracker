@@ -1,6 +1,6 @@
 # Stock Portfolio Tracker
 
-A Java desktop application for managing and tracking a stock portfolio. The application allows users to record stock purchases, monitor portfolio performance, and retrieve current stock prices using the Alpha Vantage API.
+A Java desktop application for managing and tracking a stock portfolio. The application allows users to record stock purchases, monitor portfolio performance, and retrieve current stock prices using Alpha Vantage API.
 
 ## Features
 - Add/remove companies and stocks
