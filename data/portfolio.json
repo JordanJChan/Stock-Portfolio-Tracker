@@ -4,77 +4,81 @@
             "listOfStock": [
                 {
                     "priceWhenBought": 300,
-                    "currentPrice": 309
+                    "currentPrice": 362
                 },
                 {
                     "priceWhenBought": 300,
-                    "currentPrice": 309
+                    "currentPrice": 362
                 },
                 {
                     "priceWhenBought": 300,
-                    "currentPrice": 309
+                    "currentPrice": 362
                 },
                 {
                     "priceWhenBought": 300,
-                    "currentPrice": 309
+                    "currentPrice": 362
                 },
                 {
                     "priceWhenBought": 200,
-                    "currentPrice": 311
+                    "currentPrice": 362
                 },
                 {
                     "priceWhenBought": 200,
-                    "currentPrice": 311
+                    "currentPrice": 362
                 },
                 {
                     "priceWhenBought": 200,
-                    "currentPrice": 311
+                    "currentPrice": 362
                 },
                 {
                     "priceWhenBought": 200,
-                    "currentPrice": 311
+                    "currentPrice": 362
+                },
+                {
+                    "priceWhenBought": 150,
+                    "currentPrice": 362
                 }
             ],
             "name": "TSLA",
-            "totalMoneyInvested": 2000
+            "totalMoneyInvested": 2150
         },
         {
             "listOfStock": [
                 {
                     "priceWhenBought": 130,
-                    "currentPrice": 196
+                    "currentPrice": 214
                 },
                 {
                     "priceWhenBought": 130,
-                    "currentPrice": 196
+                    "currentPrice": 214
                 },
                 {
                     "priceWhenBought": 130,
-                    "currentPrice": 196
+                    "currentPrice": 214
                 },
                 {
                     "priceWhenBought": 130,
-                    "currentPrice": 196
+                    "currentPrice": 214
                 },
                 {
                     "priceWhenBought": 130,
-                    "currentPrice": 196
+                    "currentPrice": 214
                 },
                 {
                     "priceWhenBought": 130,
-                    "currentPrice": 196
+                    "currentPrice": 214
                 },
                 {
                     "priceWhenBought": 130,
-                    "currentPrice": 196
+                    "currentPrice": 214
                 },
                 {
                     "priceWhenBought": 130,
-                    "currentPrice": 196
+                    "currentPrice": 214
                 },
                 {
                     "priceWhenBought": 130,
-                    "currentPrice": 196
+                    "currentPrice": 214
                 }
             ],
             "name": "NVDA",
@@ -84,129 +88,143 @@
             "listOfStock": [
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 },
                 {
                     "priceWhenBought": 10,
-                    "currentPrice": 231
+                    "currentPrice": 258
                 }
             ],
             "name": "AMZN",
             "totalMoneyInvested": 300
+        },
+        {
+            "listOfStock": [
+                {
+                    "priceWhenBought": 100,
+                    "currentPrice": 136
+                },
+                {
+                    "priceWhenBought": 100,
+                    "currentPrice": 136
+                }
+            ],
+            "name": "SPCX",
+            "totalMoneyInvested": 200
         }
     ],
-    "profit": 7704,
-    "moneyInvested": 3470
+    "profit": 9376,
+    "moneyInvested": 3820
 }
