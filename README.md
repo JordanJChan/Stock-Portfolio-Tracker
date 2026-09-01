@@ -22,4 +22,5 @@ A Java desktop application for managing and tracking a stock portfolio. The appl
 ## Running the Program
 Ensure that Java is installed and run ```StockPortfolioTrackerUI.java```. The GUI will pop up in another window for the user to use.
 
-
+# Screenshots
+<img src="image/StockPortfolioUI.png">
